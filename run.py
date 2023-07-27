@@ -4,8 +4,8 @@ from colorama import Fore, Style
 
 # Emoji list
 NUCLEAR_EMOJI = '\u2622'
-MAN_EMOJI = '\U0001F466'
-WOMAN_EMOJI = '\U0001F467'
+MAN_EMOJI = '\U0001F468\u200D\U0001F52C'
+WOMAN_EMOJI = '\U0001F469\u200D\U0001F52C'
 
 # Global variables
 player_name = ''
@@ -33,5 +33,5 @@ clear_screen()
 print(Fore.YELLOW + f'{NUCLEAR_EMOJI} Welcome to Fallout Mini - Hangman {NUCLEAR_EMOJI} \n\n' + Style.RESET_ALL)
 result = word_guess()
 # print(result)
-# create_charater()
+create_charater()
 # print(player_name)
