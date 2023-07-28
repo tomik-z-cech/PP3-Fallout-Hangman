@@ -1,5 +1,5 @@
 # Imports
-import gspread, json, os
+import gspread, json, os, random
 from google.oauth2.service_account import Credentials
 from colorama import Fore, Style
 from datetime import datetime
@@ -25,9 +25,6 @@ WOMAN_EMOJI = '\U0001F469\u200D\U0001F52C'
 
 # Global variables
 player_name = ''
-guesses = 0
-lenght_of_word = 0
-letters_revealed = 0
 
 
 def update_history():
@@ -39,8 +36,22 @@ def update_history():
     date_now = str(datetime.now().date())
     history_worksheet.append_row([date_now,time_now])
 
-def word_guess():
+def word_guess(difficulty, guesses):
+    word_hidden = '------------'
     word_guessed = False
+    words_sheet = SHEET.worksheet("words")
+    random_number = random.randint(1, 50)
+    word_to_guess = words_sheet.cell(random_number, difficulty).value
+    print('Your word to guess : ')
+    print(word_hidden[:difficulty])
+    print(f'{difficulty} letters\n')
+    print(word_to_guess)
+    while True:
+        player_guess = input('Type your guess : ')
+        if player_guess in word_to_guess:
+            print('good')
+        else:
+            print('not good')
     return word_guessed
 
 def create_charater():
@@ -51,16 +62,18 @@ def create_charater():
     print(f'Hello, {player_name}')
 
 def clear_screen():
+    """
+    Function clears the terminal (screen)
+    """
     os.system('clear')
     return
 
 def main():
-    update_history()
-    # clear_screen()
+    # update_history()
+    clear_screen()
     print(Fore.YELLOW + f'{NUCLEAR_EMOJI} Welcome to Fallout Mini - Hangman {NUCLEAR_EMOJI} \n\n' + Style.RESET_ALL)
-    # result = word_guess()
-    # print(result)
     # create_charater()
     # print(player_name)
+    result = word_guess(3, 5)
 
 main()
