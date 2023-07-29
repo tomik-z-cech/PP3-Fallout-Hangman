@@ -63,26 +63,31 @@ def create_charater():
 
 def clear_screen():
     """
-    Function clears the terminal (screen)
+    Function clears the terminal (screen).
     """
     os.system('clear')
     return
 
 def print_intro():
+    """
+    Function prints menu to terminal and asks user for menu choice.
+    Menu choice is protected against being an empty string.
+    Menu choice can be only 'S' or 'H' otherwise error message is returned.
+    """
     wrong_choice = False
     while True:
         clear_screen()
         print('\n\n\n\n\n')
-        print(Fore.YELLOW + '          ┌───────────────────────────────────────┐' + Style.RESET_ALL)
-        print(Fore.YELLOW + f'          │ {NUCLEAR_EMOJI} Welcome to Fallout Mini - Hangman {NUCLEAR_EMOJI} │' + Style.RESET_ALL)
-        print(Fore.YELLOW + '          └───────────────────────────────────────┘' + Style.RESET_ALL)
-        print(Fore.WHITE + '          ┌───────────────────────────────────────┐' + Style.RESET_ALL)
-        print(Fore.WHITE + '          │ ' + Fore.GREEN + 'S' + Fore.WHITE + ' - Start Game                        │' + Style.RESET_ALL)
-        print(Fore.WHITE + '          │ ' + Fore.GREEN + 'H' + Fore.WHITE + ' - High Scores                       │' + Style.RESET_ALL)
-        print(Fore.WHITE + '          └───────────────────────────────────────┘' + Style.RESET_ALL)
+        print(Fore.YELLOW + '                    ┌───────────────────────────────────────┐' + Style.RESET_ALL)
+        print(Fore.YELLOW + f'                    │ {NUCLEAR_EMOJI} Welcome to Fallout Mini - Hangman {NUCLEAR_EMOJI} │' + Style.RESET_ALL)
+        print(Fore.YELLOW + '                    └───────────────────────────────────────┘' + Style.RESET_ALL)
+        print(Fore.WHITE + '                    ┌───────────────────────────────────────┐' + Style.RESET_ALL)
+        print(Fore.WHITE + '                    │ ' + Fore.GREEN + 'S' + Fore.WHITE + ' - Start Game                        │' + Style.RESET_ALL)
+        print(Fore.WHITE + '                    │ ' + Fore.GREEN + 'H' + Fore.WHITE + ' - High Scores                       │' + Style.RESET_ALL)
+        print(Fore.WHITE + '                    └───────────────────────────────────────┘' + Style.RESET_ALL)
         if wrong_choice == True:
-            print(Fore.RED + '          Your choice was invalid !' + Style.RESET_ALL)
-        menu_choice = input('          Please make a menu choice : ')
+            print(Fore.RED + '                    Your choice was invalid !' + Style.RESET_ALL)
+        menu_choice = input('                    Please make a menu choice : ')
         if menu_choice.upper() in ('S') and len(menu_choice) > 0:
             create_charater()
             break
@@ -92,6 +97,9 @@ def print_intro():
             wrong_choice = True
 
 def main():
+    """
+    Main program function.
+    """
     print_intro()
     # update_history()
     # result = word_guess(3, 5)
