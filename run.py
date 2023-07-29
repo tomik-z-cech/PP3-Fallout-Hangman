@@ -72,20 +72,21 @@ def print_intro():
     wrong_choice = False
     while True:
         clear_screen()
-        print(Fore.YELLOW + '┌───────────────────────────────────────┐' + Style.RESET_ALL)
-        print(Fore.YELLOW + f'│ {NUCLEAR_EMOJI} Welcome to Fallout Mini - Hangman {NUCLEAR_EMOJI} │' + Style.RESET_ALL)
-        print(Fore.YELLOW + '└───────────────────────────────────────┘' + Style.RESET_ALL)
-        print(Fore.WHITE + '┌───────────────────────────────────────┐' + Style.RESET_ALL)
-        print(Fore.WHITE + '│ ' + Fore.GREEN + 'S' + Fore.WHITE + ' - Start Game                        │' + Style.RESET_ALL)
-        print(Fore.WHITE + '│ ' + Fore.GREEN + 'H' + Fore.WHITE + ' - High Scores                       │' + Style.RESET_ALL)
-        print(Fore.WHITE + '└───────────────────────────────────────┘' + Style.RESET_ALL)
+        print('\n\n\n\n\n')
+        print(Fore.YELLOW + '          ┌───────────────────────────────────────┐' + Style.RESET_ALL)
+        print(Fore.YELLOW + f'          │ {NUCLEAR_EMOJI} Welcome to Fallout Mini - Hangman {NUCLEAR_EMOJI} │' + Style.RESET_ALL)
+        print(Fore.YELLOW + '          └───────────────────────────────────────┘' + Style.RESET_ALL)
+        print(Fore.WHITE + '          ┌───────────────────────────────────────┐' + Style.RESET_ALL)
+        print(Fore.WHITE + '          │ ' + Fore.GREEN + 'S' + Fore.WHITE + ' - Start Game                        │' + Style.RESET_ALL)
+        print(Fore.WHITE + '          │ ' + Fore.GREEN + 'H' + Fore.WHITE + ' - High Scores                       │' + Style.RESET_ALL)
+        print(Fore.WHITE + '          └───────────────────────────────────────┘' + Style.RESET_ALL)
         if wrong_choice == True:
-            print('Your choice was invalid !')
-        menu_choice = input('Please make a menu choice : ')
-        if menu_choice.upper() in ('S'):
+            print(Fore.RED + '          Your choice was invalid !' + Style.RESET_ALL)
+        menu_choice = input('          Please make a menu choice : ')
+        if menu_choice.upper() in ('S') and len(menu_choice) > 0:
             create_charater()
             break
-        elif menu_choice.upper() in ('H'):
+        elif menu_choice.upper() in ('H') and len(menu_choice) > 0:
             break
         else:
             wrong_choice = True
