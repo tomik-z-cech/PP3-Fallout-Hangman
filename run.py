@@ -68,12 +68,31 @@ def clear_screen():
     os.system('clear')
     return
 
+def print_intro():
+    wrong_choice = False
+    while True:
+        clear_screen()
+        print(Fore.YELLOW + '┌───────────────────────────────────────┐' + Style.RESET_ALL)
+        print(Fore.YELLOW + f'│ {NUCLEAR_EMOJI} Welcome to Fallout Mini - Hangman {NUCLEAR_EMOJI} │' + Style.RESET_ALL)
+        print(Fore.YELLOW + '└───────────────────────────────────────┘' + Style.RESET_ALL)
+        print(Fore.WHITE + '┌───────────────────────────────────────┐' + Style.RESET_ALL)
+        print(Fore.WHITE + '│ ' + Fore.GREEN + 'S' + Fore.WHITE + ' - Start Game                        │' + Style.RESET_ALL)
+        print(Fore.WHITE + '│ ' + Fore.GREEN + 'H' + Fore.WHITE + ' - High Scores                       │' + Style.RESET_ALL)
+        print(Fore.WHITE + '└───────────────────────────────────────┘' + Style.RESET_ALL)
+        if wrong_choice == True:
+            print('Your choice was invalid !')
+        menu_choice = input('Please make a menu choice : ')
+        if menu_choice.upper() in ('S'):
+            create_charater()
+            break
+        elif menu_choice.upper() in ('H'):
+            break
+        else:
+            wrong_choice = True
+
 def main():
+    print_intro()
     # update_history()
-    clear_screen()
-    print(Fore.YELLOW + f'{NUCLEAR_EMOJI} Welcome to Fallout Mini - Hangman {NUCLEAR_EMOJI} \n\n' + Style.RESET_ALL)
-    # create_charater()
-    # print(player_name)
-    result = word_guess(3, 5)
+    # result = word_guess(3, 5)
 
 main()
