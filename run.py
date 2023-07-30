@@ -1,5 +1,5 @@
 # Imports
-import gspread, json, os, random
+import gspread, json, os, random, readchar
 from google.oauth2.service_account import Credentials
 from colorama import Fore, Style
 from datetime import datetime
@@ -87,7 +87,8 @@ def print_intro():
         print(Fore.WHITE + '                    └───────────────────────────────────────┘' + Style.RESET_ALL)
         if wrong_choice == True:
             print(Fore.RED + '                    Your choice was invalid !' + Style.RESET_ALL)
-        menu_choice = input('                    Please make a menu choice : ')
+        print('                    Please make a menu choice : ')
+        menu_choice = readchar.readchar()
         if menu_choice.upper() in ('S') and len(menu_choice) > 0:
             create_charater()
             break
