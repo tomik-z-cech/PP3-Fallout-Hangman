@@ -89,10 +89,10 @@ def print_intro():
             print(Fore.RED + '                    Your choice was invalid !' + Style.RESET_ALL)
         print('                    Please make a menu choice : ')
         menu_choice = readchar.readchar()
-        if menu_choice.upper() in ('S') and len(menu_choice) > 0:
+        if menu_choice.upper() in ('S'):
             create_charater()
             break
-        elif menu_choice.upper() in ('H') and len(menu_choice) > 0:
+        elif menu_choice.upper() in ('H'):
             break
         else:
             wrong_choice = True
