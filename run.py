@@ -56,9 +56,13 @@ def word_guess(difficulty, guesses):
 
 def create_charater():
     clear_screen()
-    global player_name 
-    print(Fore.YELLOW + f'{MAN_EMOJI}  Create new character {WOMAN_EMOJI} \n\n' + Style.RESET_ALL)
-    player_name = input("What's your name : ")
+    global player_name
+    print('\n\n')
+    print(Fore.YELLOW + '                    ┌───────────────────────────────────────┐' + Style.RESET_ALL)
+    print(Fore.YELLOW + f'                    │      {MAN_EMOJI}  Create new character {WOMAN_EMOJI}      │' + Style.RESET_ALL)
+    print(Fore.YELLOW + '                    └───────────────────────────────────────┘' + Style.RESET_ALL) 
+    print(Fore.CYAN + "                     What's your name ? \n" + Style.RESET_ALL)
+    player_name = input('                     ')
     print(f'Hello, {player_name}')
 
 def clear_screen():
@@ -101,8 +105,8 @@ def main():
     """
     Main program function.
     """
-    print_intro()
-    # update_history()
+    # print_intro()
+    create_charater()
     # result = word_guess(3, 5)
 
 main()
