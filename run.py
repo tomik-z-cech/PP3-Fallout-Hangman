@@ -29,12 +29,12 @@ perk_inteligence = False
 perk_luck = False
 perk_charisma = False
 
-def display_text(row, column, delay=0.1):
+def display_text(row, delay=0.1):
     """
     Function displays large portions of text with typewriter effect.
     """
     text_worksheet = SHEET.worksheet("text")
-    text_to_write = text_worksheet.cell(row, column).value
+    text_to_write = text_worksheet.cell(row, 1).value
     for char in text_to_write:
         sys.stdout.write(char)
         sys.stdout.flush()
@@ -163,16 +163,18 @@ def end_of_program():
     print('Thank you for playing.')
 
 def start_game():
-    display_text(1,1)
-    display_text(2,1)
+    clear_screen()
+    display_text(1)
+    display_text(2)
     return
 
 def main():
     """
     Main program function.
     """
-    # print_intro()
+    print_intro()
     start_game()
     end_of_program()
+    return
 
 main()
