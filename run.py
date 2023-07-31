@@ -25,16 +25,19 @@ WOMAN_EMOJI = '\U0001F469\u200D\U0001F52C'
 
 # Global variables
 player_name = ''
+perk_inteligence = False
+perk_luck = False
+perk_charisma = False
 
 
 def update_history():
     """
-    Function updates sheet on google drive with date and time of user access
+    Function updates sheet on google drive with players name, date, time and perk selected by user.
     """
     history_worksheet = SHEET.worksheet("history")
     time_now = str(datetime.now().time())
     date_now = str(datetime.now().date())
-    history_worksheet.append_row([date_now,time_now])
+    history_worksheet.append_row([player_name, date_now, time_now, perk_inteligence, perk_luck, perk_charisma])
 
 def word_guess(difficulty, guesses):
     word_hidden = '------------'
@@ -55,26 +58,53 @@ def word_guess(difficulty, guesses):
     return word_guessed
 
 def create_charater():
+    """
+    Function reads player's name and selection of perk.
+    Function uses 'readchar' dependency.
+    Players name can't be empty otherwise error message is returned.
+    Perks selection can be only 'I' or 'L' or 'C' otherwise error message is returned.
+    """
     wrong_name = False
     while True:
         clear_screen()
-        global player_name
+        global player_name, perk_inteligence, perk_luck, perk_charisma
         print('\n\n')
-        print(Fore.YELLOW + '                    ┌───────────────────────────────────────┐' + Style.RESET_ALL)
-        print(Fore.YELLOW + f'                    │      {MAN_EMOJI}  Create new character {WOMAN_EMOJI}      │' + Style.RESET_ALL)
-        print(Fore.YELLOW + '                    └───────────────────────────────────────┘' + Style.RESET_ALL) 
-        print(Fore.CYAN + "                     What's your name ?" + Style.RESET_ALL)
-        player_name = input('                     ')
+        print(Fore.YELLOW + '         ┌───────────────────────────────────────┐' + Style.RESET_ALL)
+        print(Fore.YELLOW + f'         │      {MAN_EMOJI}  Create new character {WOMAN_EMOJI}      │' + Style.RESET_ALL)
+        print(Fore.YELLOW + '         └───────────────────────────────────────┘' + Style.RESET_ALL) 
         if wrong_name == True:
-            print(Fore.RED + '                    Your name was invalid !' + Style.RESET_ALL)
+            print(Fore.RED + '         Your name was invalid ! Try again !' + Style.RESET_ALL)
+        print(Fore.BLUE + "         What's your name ?" + Style.RESET_ALL)
+        player_name = input('         ')
         if len(player_name) > 0:
-            print(f'Hello, {player_name}')
-            word_guess(3,5)
+            wrong_perk = False
+            while True:
+                clear_screen()
+                print(Fore.YELLOW + '         ┌──────────────────────────────────────────────────────────────────┐' + Style.RESET_ALL)
+                print(Fore.YELLOW + '         │ ' + Fore.GREEN + 'I' + Fore.WHITE + ' - Inteligent - shortens the length of guesed word by 1 letter' + Fore.YELLOW + '  │' + Style.RESET_ALL)
+                print(Fore.YELLOW + '         │ ' + Fore.GREEN + 'L' + Fore.WHITE + ' - Lucky - adds 5 extra guesses to your guess count' + Fore.YELLOW + '             │' + Style.RESET_ALL)
+                print(Fore.YELLOW + '         │ ' + Fore.GREEN + 'C' + Fore.WHITE + ' - Charismatic - reveals an extra letter in guessed word' + Fore.YELLOW + '        │' + Style.RESET_ALL)
+                print(Fore.YELLOW + '         └──────────────────────────────────────────────────────────────────┘' + Style.RESET_ALL)
+                print(Fore.BLUE + f"         Hello, the " + Fore.MAGENTA + f"Chosen One {player_name}" + Fore.BLUE +" , select your perk. Press i, l or c." + Style.RESET_ALL)
+                if wrong_perk == True:
+                    print(Fore.RED + '         Your choice of perk was invalid, try again !' + Style.RESET_ALL)
+                perk_choice = readchar.readchar()
+                if perk_choice.upper() == 'I':
+                    perk_inteligence = True
+                    break
+                if perk_choice.upper() == 'L':
+                    perk_luck = True
+                    break
+                if perk_choice.upper() == 'C':
+                    perk_charisma = True
+                    break
+                else:
+                    wrong_perk = True
+            update_history()
             return
         else:
             wrong_name = True
-        print('wrong_name')
-
+        
 def clear_screen():
     """
     Function clears the terminal (screen).
@@ -101,12 +131,12 @@ def print_intro():
         print(Fore.WHITE + '                    └───────────────────────────────────────┘' + Style.RESET_ALL)
         if wrong_choice == True:
             print(Fore.RED + '                    Your choice was invalid !' + Style.RESET_ALL)
-        print('                    Please make a menu choice : ')
+        print('                    Please make a menu choice, Press S or H. ')
         menu_choice = readchar.readchar()
-        if menu_choice.upper() in ('S'):
+        if menu_choice.upper() == 'S':
             create_charater()
             break
-        elif menu_choice.upper() in ('H'):
+        elif menu_choice.upper() == 'H':
             break
         else:
             wrong_choice = True
@@ -116,6 +146,6 @@ def main():
     Main program function.
     """
     print_intro()
-    # result = word_guess(3, 5)
+    # word_guess(3, 5)
 
 main()
