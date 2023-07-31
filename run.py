@@ -29,6 +29,7 @@ perk_inteligence = 0
 perk_luck = 0
 perk_charisma = 0
 alphabet = ('abcdefghijklmnopqrstuvwxyz')
+levels = [1]
 
 def display_text(row, delay=0.012):
     """
@@ -55,14 +56,18 @@ def update_history():
     date_now = str(datetime.now().date())
     history_worksheet.append_row([player_name, date_now, time_now, perk_inteligence, perk_luck, perk_charisma])
 
-def word_guess(difficulty, guesses, revealed):
+def word_guess(difficulty, guesses):
+    global perk_charisma, perk_inteligence, perk_luck
     message_color = 3
     message = ''
     word_guessed_correctly = False
     letters_guessed = []
     difficulty -= perk_inteligence
     guesses += perk_luck
-    revealed += perk_charisma
+    if perk_charisma == 1:
+        perk_charisma_used = 1
+    else:
+        perk_charisma_used = 0
     words_sheet = SHEET.worksheet("words")
     random_number = random.randint(1, 50)
     word_to_guess = words_sheet.cell(random_number, difficulty).value
@@ -71,6 +76,11 @@ def word_guess(difficulty, guesses, revealed):
         print(f'Your word to guess is {difficulty} letters long.')
         print(word_to_guess)
         progress_list = []
+        if perk_charisma_used == 1:
+            charisma_position = random.randint(0, difficulty - 1)
+            charisma_letter = word_to_guess[charisma_position]
+            letters_guessed.append(charisma_letter)
+            perk_charisma_used = 0
         for each in word_to_guess:
             if each in letters_guessed:
                 progress_list.append(each)
@@ -81,7 +91,7 @@ def word_guess(difficulty, guesses, revealed):
             return True
         print(f'Your progress : {progress_word}')
         print(f'You already tried this letters : {letters_guessed}')
-        print(f'You have {guesses} left')
+        print(f'You have {guesses} guesses left')
         if message_color == 1:
             print(Fore.RED + f'{message}' + Style.RESET_ALL)
         elif message_color == 2:
@@ -115,6 +125,7 @@ def word_guess(difficulty, guesses, revealed):
             else:
                 message_color = 1
                 message = 'Thats not the word'
+                guesses -= 1
         elif len(player_guess) == 0:
             message_color = 2
             message = 'Your guess cannot be empty'
@@ -227,13 +238,18 @@ def wait_until_keypressed():
     return
 
 def start_game():
-    clear_screen()
-    display_text(1)
-    wait_until_keypressed()
-    clear_screen()
-    display_text(2)
-    wait_until_keypressed()
-    word_guess(3, 10, 1)
+    """
+    Function starts the game in loop for different levels and difficulty.
+    """
+    for level in levels:
+        clear_screen()
+        display_text(level)
+        wait_until_keypressed()
+        clear_screen()
+        display_text(level + 1)
+        wait_until_keypressed()
+        word_guess(level + 2, 10)
+        level += 1
     return
 
 print_intro()
