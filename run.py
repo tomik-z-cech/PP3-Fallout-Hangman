@@ -36,10 +36,12 @@ def display_text(row, delay=0.012):
     """
     text_worksheet = SHEET.worksheet("text")
     text_to_write = text_worksheet.cell(row, 1).value
+    print(Fore.GREEN + '')
     for char in text_to_write:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(delay)
+    print('' + Style.RESET_ALL)
     return
 
 
@@ -115,6 +117,7 @@ def create_charater():
                 else:
                     wrong_perk = True
             update_history()
+            start_game()
             return
         else:
             wrong_name = True
@@ -163,14 +166,22 @@ def end_of_program():
     clear_screen()
     print('Thank you for playing.')
 
+def wait_until_keypressed():
+    """
+    Function waits for any key to be pressed so user has time to read the text and continue when ready.
+    """
+    print('\n')
+    print(Fore.YELLOW + 'Press anything to continue ...'+ Style.RESET_ALL)
+    pause_var = readchar.readchar()
+    return
+
 def start_game():
     clear_screen()
     display_text(1)
-    print('\n\n')
-    print('Press anything to continue ...')
-    pause_var = readchar.readchar()
+    wait_until_keypressed()
     clear_screen()
     display_text(2)
+    wait_until_keypressed()
     return
 
 def main():
@@ -178,7 +189,6 @@ def main():
     Main program function.
     """
     print_intro()
-    start_game()
     end_of_program()
     return
 
