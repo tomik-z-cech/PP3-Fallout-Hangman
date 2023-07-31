@@ -56,6 +56,8 @@ def update_history():
     history_worksheet.append_row([player_name, date_now, time_now, perk_inteligence, perk_luck, perk_charisma])
 
 def word_guess(difficulty, guesses, revealed):
+    message_color = 3
+    message = ''
     word_guessed_correctly = False
     letters_guessed = []
     difficulty -= perk_inteligence
@@ -64,36 +66,47 @@ def word_guess(difficulty, guesses, revealed):
     words_sheet = SHEET.worksheet("words")
     random_number = random.randint(1, 50)
     word_to_guess = words_sheet.cell(random_number, difficulty).value
-    print(f'Your word to guess is {difficulty} letters long.')
-    print(difficulty * '-')
-    print(word_to_guess)
     while word_guessed_correctly == False and guesses > 0:
+        clear_screen()
+        print(f'Your word to guess is {difficulty} letters long.')
+        print(word_to_guess)
         print(f'You already tried this letters : {letters_guessed}')
-        print(guesses)
+        print(f'You have {guesses} left')
+        if message_color == 1:
+            print(Fore.RED + f'{message}' + Style.RESET_ALL)
+        elif message_color == 2:
+            print(Fore.YELLOW + f'{message}' + Style.RESET_ALL)
+        elif message_color == 3:
+            print(Fore.GREEN + f'{message}' + Style.RESET_ALL)
         player_guess = input('Guess a letter or type the whole word : ')
         if len(player_guess) == 1:
             if player_guess not in alphabet:
-                print('Input only letters ...')
+                message_color = 1
+                message = 'Input only letters ...'
             elif player_guess in letters_guessed:
-                print('You already tried this letter')
+                message_color = 2
+                message = 'You already tried this letter'
             elif player_guess not in word_to_guess:
                 letters_guessed.append(player_guess)
                 guesses -= 1
-                print('The letter is not in it ...')
+                message_color = 1
+                message = 'The letter is not in it ...'
             elif player_guess in word_to_guess:
                 letters_guessed.append(player_guess)
                 guesses -= 1
-                print("That's correct")
+                message_color = 3
+                message = "That's correct"
             else:
-                print('The guess cannot be empty')
+                message_color = 2
+                message = 'The guess cannot be empty'
         elif len(player_guess) == len(word_to_guess):
             if player_guess == word_to_guess:
-                print('Winner')
                 return True
             else:
-                print('Thats not the word')
+                message_color = 1
+                message = 'Thats not the word'
         else:
-            print('Length of your guess isnt same to the lenght of word')
+            message = 'Length of your guess isnt same to the lenght of word'
     return False
 
 def create_charater():
