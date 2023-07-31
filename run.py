@@ -25,9 +25,10 @@ WOMAN_EMOJI = '\U0001F469\u200D\U0001F52C'
 
 # Global variables
 player_name = ''
-perk_inteligence = False
-perk_luck = False
-perk_charisma = False
+perk_inteligence = 0
+perk_luck = 0
+perk_charisma = 0
+alphabet = ('abcdefghijklmnopqrstuvwxyz')
 
 def display_text(row, delay=0.012):
     """
@@ -54,23 +55,46 @@ def update_history():
     date_now = str(datetime.now().date())
     history_worksheet.append_row([player_name, date_now, time_now, perk_inteligence, perk_luck, perk_charisma])
 
-def word_guess(difficulty, guesses):
-    word_hidden = '------------'
-    word_guessed = False
+def word_guess(difficulty, guesses, revealed):
+    word_guessed_correctly = False
+    letters_guessed = []
+    difficulty -= perk_inteligence
+    guesses += perk_luck
+    revealed += perk_charisma
     words_sheet = SHEET.worksheet("words")
     random_number = random.randint(1, 50)
     word_to_guess = words_sheet.cell(random_number, difficulty).value
-    print('Your word to guess : ')
-    print(word_hidden[:difficulty])
-    print(f'{difficulty} letters\n')
+    print(f'Your word to guess is {difficulty} letters long.')
+    print(difficulty * '-')
     print(word_to_guess)
-    while True:
-        player_guess = input('Type your guess : ')
-        if player_guess in word_to_guess:
-            print('good')
+    while word_guessed_correctly == False and guesses > 0:
+        print(f'You already tried this letters : {letters_guessed}')
+        print(guesses)
+        player_guess = input('Guess a letter or type the whole word : ')
+        if len(player_guess) == 1:
+            if player_guess not in alphabet:
+                print('Input only letters ...')
+            elif player_guess in letters_guessed:
+                print('You already tried this letter')
+            elif player_guess not in word_to_guess:
+                letters_guessed.append(player_guess)
+                guesses -= 1
+                print('The letter is not in it ...')
+            elif player_guess in word_to_guess:
+                letters_guessed.append(player_guess)
+                guesses -= 1
+                print("That's correct")
+            else:
+                print('The guess cannot be empty')
+        elif len(player_guess) == len(word_to_guess):
+            if player_guess == word_to_guess:
+                print('Winner')
+                return True
+            else:
+                print('Thats not the word')
         else:
-            print('not good')
-    return word_guessed
+            print('Length of your guess isnt same to the lenght of word')
+    return False
 
 def create_charater():
     """
@@ -106,13 +130,13 @@ def create_charater():
                     print(Fore.RED + '      Your choice of perk was invalid, try again !' + Style.RESET_ALL)
                 perk_choice = readchar.readchar()
                 if perk_choice.upper() == 'I':
-                    perk_inteligence = True
+                    perk_inteligence = 1
                     break
                 if perk_choice.upper() == 'L':
-                    perk_luck = True
+                    perk_luck = 5
                     break
                 if perk_choice.upper() == 'C':
-                    perk_charisma = True
+                    perk_charisma = 1
                     break
                 else:
                     wrong_perk = True
@@ -182,14 +206,8 @@ def start_game():
     clear_screen()
     display_text(2)
     wait_until_keypressed()
+    word_guess(3, 10, 1)
     return
 
-def main():
-    """
-    Main program function.
-    """
-    print_intro()
-    end_of_program()
-    return
-
-main()
+print_intro()
+end_of_program()
