@@ -70,6 +70,16 @@ def word_guess(difficulty, guesses, revealed):
         clear_screen()
         print(f'Your word to guess is {difficulty} letters long.')
         print(word_to_guess)
+        progress_list = []
+        for each in word_to_guess:
+            if each in letters_guessed:
+                progress_list.append(each)
+            else:
+                progress_list.append('-')
+        progress_word = ''.join(progress_list)
+        if '-' not in progress_list:
+            return True
+        print(f'Your progress : {progress_word}')
         print(f'You already tried this letters : {letters_guessed}')
         print(f'You have {guesses} left')
         if message_color == 1:
@@ -98,14 +108,18 @@ def word_guess(difficulty, guesses, revealed):
                 message = "That's correct"
             else:
                 message_color = 2
-                message = 'The guess cannot be empty'
+                message = 'Something went wrong'
         elif len(player_guess) == len(word_to_guess):
             if player_guess == word_to_guess:
                 return True
             else:
                 message_color = 1
                 message = 'Thats not the word'
+        elif len(player_guess) == 0:
+            message_color = 2
+            message = 'Your guess cannot be empty'
         else:
+            message_color = 1
             message = 'Length of your guess isnt same to the lenght of word'
     return False
 
