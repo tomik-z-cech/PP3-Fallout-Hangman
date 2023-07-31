@@ -29,9 +29,10 @@ perk_inteligence = False
 perk_luck = False
 perk_charisma = False
 
-def display_text(row, delay=0.1):
+def display_text(row, delay=0.012):
     """
-    Function displays large portions of text with typewriter effect.
+    Function displays large portions of text from connected google sheet with typewriter effect.
+    Function takes number of line as parameter.
     """
     text_worksheet = SHEET.worksheet("text")
     text_to_write = text_worksheet.cell(row, 1).value
@@ -165,6 +166,10 @@ def end_of_program():
 def start_game():
     clear_screen()
     display_text(1)
+    print('\n\n')
+    print('Press anything to continue ...')
+    pause_var = readchar.readchar()
+    clear_screen()
     display_text(2)
     return
 
