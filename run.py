@@ -12,6 +12,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
+# Google sheets credentials
 creds = json.load(open('creds.json'))
 CREDS = Credentials.from_service_account_info(creds)
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
@@ -36,8 +37,10 @@ def display_text(row, delay=0.012):
     Function displays large portions of text from connected google sheet with typewriter effect.
     Function takes number of line as parameter.
     """
+    # Call Google sheets and select column A and row from function parametr.
     text_worksheet = SHEET.worksheet("text")
     text_to_write = text_worksheet.cell(row, 1).value
+    # Write imported text with 0.012 seconds delay after each character typed.
     print(Fore.GREEN + '')
     for char in text_to_write:
         sys.stdout.write(char)
@@ -51,66 +54,93 @@ def update_history():
     """
     Function updates sheet on google drive with players name, date, time and perk selected by user.
     """
+    # Open Google worksheet
     history_worksheet = SHEET.worksheet("history")
+    # Get current time and date
     time_now = str(datetime.now().time())
     date_now = str(datetime.now().date())
+    # Update history worksheet with name, date, time and used perks.
     history_worksheet.append_row([player_name, date_now, time_now, perk_inteligence, perk_luck, perk_charisma])
 
 def word_guess(difficulty, guesses):
+    """
+    Function randomly takes a word from google sheet.
+    Function takes parametr of difficulty = lenght of word selected.
+    Function take parametr of guesses = how many gueses does player have.
+    """
+    # Call for global variables.
     global perk_charisma, perk_inteligence, perk_luck
+    # Initail setting for color and value of message returned to player after each letter guess.
     message_color = 3
     message = ''
+    # Initial setting of the word has not been guessed yet.
     word_guessed_correctly = False
     letters_guessed = []
+    # Initial perks settings.
     difficulty -= perk_inteligence
     guesses += perk_luck
     if perk_charisma == 1:
         perk_charisma_used = 1
     else:
         perk_charisma_used = 0
+    # Open Google worksheet.
     words_sheet = SHEET.worksheet("words")
+    # Generate random number 1-50 and import a word based on difficulty = lenght of word and genarated number.
     random_number = random.randint(1, 50)
     word_to_guess = words_sheet.cell(random_number, difficulty).value
+    # Cycle that runs until word fully guessed or player does not run out of guesses.
     while word_guessed_correctly == False and guesses > 0:
         clear_screen()
         print(f'Your word to guess is {difficulty} letters long.')
-        print(word_to_guess)
+        # Initialize list of progress.
         progress_list = []
+        # If perk charisma is used, reveal one letter each game.
         if perk_charisma_used == 1:
             charisma_position = random.randint(0, difficulty - 1)
             charisma_letter = word_to_guess[charisma_position]
             letters_guessed.append(charisma_letter)
             perk_charisma_used = 0
+        # Append correctly guessed letters to progress list.
         for each in word_to_guess:
             if each in letters_guessed:
                 progress_list.append(each)
             else:
                 progress_list.append('-')
+        # Transform progress list to a string 
         progress_word = ''.join(progress_list)
+        # If all letters are revealed (progress list has no '-' value left), player wins.
         if '-' not in progress_list:
             return True
+        # Player sees the following information.
         print(f'Your progress : {progress_word}')
         print(f'You already tried this letters : {letters_guessed}')
         print(f'You have {guesses} guesses left')
+        # Statement that changes color of message depends on the importnace of message.
         if message_color == 1:
             print(Fore.RED + f'{message}' + Style.RESET_ALL)
         elif message_color == 2:
             print(Fore.YELLOW + f'{message}' + Style.RESET_ALL)
         elif message_color == 3:
             print(Fore.GREEN + f'{message}' + Style.RESET_ALL)
+        # Players input of a letter or the whole word.
         player_guess = input('Guess a letter or type the whole word : ')
+        # If player have inputed only one character.
         if len(player_guess) == 1:
+            # Input is not a letter.
             if player_guess not in alphabet:
                 message_color = 1
                 message = 'Input only letters ...'
+            # Input was already selected previously.
             elif player_guess in letters_guessed:
                 message_color = 2
                 message = 'You already tried this letter'
+            # Input is not in the word to guess.
             elif player_guess not in word_to_guess:
                 letters_guessed.append(player_guess)
                 guesses -= 1
                 message_color = 1
                 message = 'The letter is not in it ...'
+            # Correct guess.
             elif player_guess in word_to_guess:
                 letters_guessed.append(player_guess)
                 guesses -= 1
@@ -119,16 +149,21 @@ def word_guess(difficulty, guesses):
             else:
                 message_color = 2
                 message = 'Something went wrong'
+        # Player guessed the whole word and the lenght of word is correct.
         elif len(player_guess) == len(word_to_guess):
+            # Correct word.
             if player_guess == word_to_guess:
                 return True
+            # Incorrect word.
             else:
                 message_color = 1
                 message = 'Thats not the word'
                 guesses -= 1
+        # Player tries to pass in empty string.
         elif len(player_guess) == 0:
             message_color = 2
             message = 'Your guess cannot be empty'
+        # The lenght of word to guess and players guess are different.
         else:
             message_color = 1
             message = 'Length of your guess isnt same to the lenght of word'
@@ -141,20 +176,28 @@ def create_charater():
     Players name can't be empty otherwise error message is returned.
     Perks selection can be only 'I' or 'L' or 'C' otherwise error message is returned.
     """
+    # Initial variable of wrong name that's used later in function.
     wrong_name = False
+    # Loop that finishes when correct name entered.
     while True:
         clear_screen()
+        # Call for global variables.
         global player_name, perk_inteligence, perk_luck, perk_charisma
         print('\n\n')
+        # Output on display for user.
         print(Fore.YELLOW + '         ┌───────────────────────────────────────┐' + Style.RESET_ALL)
         print(Fore.YELLOW + f'         │      {MAN_EMOJI}  Create new character {WOMAN_EMOJI}      │' + Style.RESET_ALL)
         print(Fore.YELLOW + '         └───────────────────────────────────────┘' + Style.RESET_ALL) 
+        # Message to display if entered name is not correct.
         if wrong_name == True:
             print(Fore.RED + '         Your name was invalid ! Try again !' + Style.RESET_ALL)
+        # Players name input
         print(Fore.BLUE + "         What's your name ?" + Style.RESET_ALL)
         player_name = input('         ')
+        # If player tries to pass empty string
         if len(player_name) > 0:
             wrong_perk = False
+            # Selection of perk
             while True:
                 clear_screen()
                 print('\n\n\n')
@@ -164,9 +207,12 @@ def create_charater():
                 print(Fore.YELLOW + '      │ ' + Fore.GREEN + 'C' + Fore.WHITE + ' - Charismatic - reveals an extra letter in guessed word' + Fore.YELLOW + '        │' + Style.RESET_ALL)
                 print(Fore.YELLOW + '      └──────────────────────────────────────────────────────────────────┘' + Style.RESET_ALL)
                 print(Fore.BLUE + f"      Hello, the " + Fore.MAGENTA + f"Chosen One {player_name}" + Fore.BLUE +" , select your perk. Press i, l or c." + Style.RESET_ALL)
+                # Message thats displayed if selection of perk was incorrect.
                 if wrong_perk == True:
                     print(Fore.RED + '      Your choice of perk was invalid, try again !' + Style.RESET_ALL)
+                # Reading players selection of perk
                 perk_choice = readchar.readchar()
+                # Setting perk based on players selection.
                 if perk_choice.upper() == 'I':
                     perk_inteligence = 1
                     break
@@ -178,9 +224,12 @@ def create_charater():
                     break
                 else:
                     wrong_perk = True
+            # Calling updating function.
             update_history()
+            # Calling function that starts game.
             start_game()
             return
+        # Return back to the loop if name was not correct.
         else:
             wrong_name = True
         
@@ -200,6 +249,7 @@ def print_intro():
     wrong_choice = False
     while True:
         clear_screen()
+        # Print menu on screen.
         print('\n\n\n\n\n')
         print(Fore.YELLOW + '                    ┌───────────────────────────────────────┐' + Style.RESET_ALL)
         print(Fore.YELLOW + f'                    │ {NUCLEAR_EMOJI} Welcome to Fallout Mini - Hangman {NUCLEAR_EMOJI} │' + Style.RESET_ALL)
@@ -208,15 +258,19 @@ def print_intro():
         print(Fore.WHITE + '                    │ ' + Fore.GREEN + 'S' + Fore.WHITE + ' - Start Game                        │' + Style.RESET_ALL)
         print(Fore.WHITE + '                    │ ' + Fore.GREEN + 'H' + Fore.WHITE + ' - High Scores                       │' + Style.RESET_ALL)
         print(Fore.WHITE + '                    └───────────────────────────────────────┘' + Style.RESET_ALL)
+        # Message to be displayed if selection was wrong.
         if wrong_choice == True:
             print(Fore.RED + '                    Your choice was invalid !' + Style.RESET_ALL)
         print('                    Please make a menu choice, Press S or H. ')
+        # Reading players selection
         menu_choice = readchar.readchar()
+        # calling functions based on players selection.
         if menu_choice.upper() == 'S':
             create_charater()
             break
         elif menu_choice.upper() == 'H':
             break
+        # Return back to this loop if players selection was wrong.
         else:
             wrong_choice = True
 
@@ -234,6 +288,7 @@ def wait_until_keypressed():
     """
     print('\n')
     print(Fore.YELLOW + 'Press anything to continue ...'+ Style.RESET_ALL)
+    # Dummy variable only waiting for any key to be pressed.
     pause_var = readchar.readchar()
     return
 
@@ -241,6 +296,7 @@ def start_game():
     """
     Function starts the game in loop for different levels and difficulty.
     """
+    # Loop to iterate through levels.
     for level in levels:
         clear_screen()
         display_text(level)
@@ -252,5 +308,6 @@ def start_game():
         level += 1
     return
 
+# Start of program
 print_intro()
 end_of_program()
