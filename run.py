@@ -1,5 +1,5 @@
 # Imports
-import gspread, json, os, random, readchar
+import gspread, json, os, random, readchar, sys, time
 from google.oauth2.service_account import Credentials
 from colorama import Fore, Style
 from datetime import datetime
@@ -28,6 +28,18 @@ player_name = ''
 perk_inteligence = False
 perk_luck = False
 perk_charisma = False
+
+def display_text(row, column, delay=0.1):
+    """
+    Function displays large portions of text with typewriter effect.
+    """
+    text_worksheet = SHEET.worksheet("text")
+    text_to_write = text_worksheet.cell(row, column).value
+    for char in text_to_write:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    return
 
 
 def update_history():
@@ -143,15 +155,24 @@ def print_intro():
             wrong_choice = True
 
 def end_of_program():
+    """
+    This is the last function to be executed.
+    This function prints "Thank you for playing" message.
+    """
     clear_screen()
-    print('thanks for playing')
+    print('Thank you for playing.')
+
+def start_game():
+    display_text(1,1)
+    display_text(2,1)
+    return
 
 def main():
     """
     Main program function.
     """
-    print_intro()
-    # word_guess(3, 5)
+    # print_intro()
+    start_game()
     end_of_program()
 
 main()
