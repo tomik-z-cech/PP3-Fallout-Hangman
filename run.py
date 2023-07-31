@@ -80,14 +80,15 @@ def create_charater():
             wrong_perk = False
             while True:
                 clear_screen()
-                print(Fore.YELLOW + '         ┌──────────────────────────────────────────────────────────────────┐' + Style.RESET_ALL)
-                print(Fore.YELLOW + '         │ ' + Fore.GREEN + 'I' + Fore.WHITE + ' - Inteligent - shortens the length of guesed word by 1 letter' + Fore.YELLOW + '  │' + Style.RESET_ALL)
-                print(Fore.YELLOW + '         │ ' + Fore.GREEN + 'L' + Fore.WHITE + ' - Lucky - adds 5 extra guesses to your guess count' + Fore.YELLOW + '             │' + Style.RESET_ALL)
-                print(Fore.YELLOW + '         │ ' + Fore.GREEN + 'C' + Fore.WHITE + ' - Charismatic - reveals an extra letter in guessed word' + Fore.YELLOW + '        │' + Style.RESET_ALL)
-                print(Fore.YELLOW + '         └──────────────────────────────────────────────────────────────────┘' + Style.RESET_ALL)
-                print(Fore.BLUE + f"         Hello, the " + Fore.MAGENTA + f"Chosen One {player_name}" + Fore.BLUE +" , select your perk. Press i, l or c." + Style.RESET_ALL)
+                print('\n\n\n')
+                print(Fore.YELLOW + '      ┌──────────────────────────────────────────────────────────────────┐' + Style.RESET_ALL)
+                print(Fore.YELLOW + '      │ ' + Fore.GREEN + 'I' + Fore.WHITE + ' - Inteligent - shortens the length of guesed word by 1 letter' + Fore.YELLOW + '  │' + Style.RESET_ALL)
+                print(Fore.YELLOW + '      │ ' + Fore.GREEN + 'L' + Fore.WHITE + ' - Lucky - adds 5 extra guesses to your guess count' + Fore.YELLOW + '             │' + Style.RESET_ALL)
+                print(Fore.YELLOW + '      │ ' + Fore.GREEN + 'C' + Fore.WHITE + ' - Charismatic - reveals an extra letter in guessed word' + Fore.YELLOW + '        │' + Style.RESET_ALL)
+                print(Fore.YELLOW + '      └──────────────────────────────────────────────────────────────────┘' + Style.RESET_ALL)
+                print(Fore.BLUE + f"      Hello, the " + Fore.MAGENTA + f"Chosen One {player_name}" + Fore.BLUE +" , select your perk. Press i, l or c." + Style.RESET_ALL)
                 if wrong_perk == True:
-                    print(Fore.RED + '         Your choice of perk was invalid, try again !' + Style.RESET_ALL)
+                    print(Fore.RED + '      Your choice of perk was invalid, try again !' + Style.RESET_ALL)
                 perk_choice = readchar.readchar()
                 if perk_choice.upper() == 'I':
                     perk_inteligence = True
@@ -141,11 +142,16 @@ def print_intro():
         else:
             wrong_choice = True
 
+def end_of_program():
+    clear_screen()
+    print('thanks for playing')
+
 def main():
     """
     Main program function.
     """
     print_intro()
     # word_guess(3, 5)
+    end_of_program()
 
 main()
