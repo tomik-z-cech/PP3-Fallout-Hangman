@@ -55,15 +55,25 @@ def word_guess(difficulty, guesses):
     return word_guessed
 
 def create_charater():
-    clear_screen()
-    global player_name
-    print('\n\n')
-    print(Fore.YELLOW + '                    ┌───────────────────────────────────────┐' + Style.RESET_ALL)
-    print(Fore.YELLOW + f'                    │      {MAN_EMOJI}  Create new character {WOMAN_EMOJI}      │' + Style.RESET_ALL)
-    print(Fore.YELLOW + '                    └───────────────────────────────────────┘' + Style.RESET_ALL) 
-    print(Fore.CYAN + "                     What's your name ? \n" + Style.RESET_ALL)
-    player_name = input('                     ')
-    print(f'Hello, {player_name}')
+    wrong_name = False
+    while True:
+        clear_screen()
+        global player_name
+        print('\n\n')
+        print(Fore.YELLOW + '                    ┌───────────────────────────────────────┐' + Style.RESET_ALL)
+        print(Fore.YELLOW + f'                    │      {MAN_EMOJI}  Create new character {WOMAN_EMOJI}      │' + Style.RESET_ALL)
+        print(Fore.YELLOW + '                    └───────────────────────────────────────┘' + Style.RESET_ALL) 
+        print(Fore.CYAN + "                     What's your name ?" + Style.RESET_ALL)
+        player_name = input('                     ')
+        if wrong_name == True:
+            print(Fore.RED + '                    Your name was invalid !' + Style.RESET_ALL)
+        if len(player_name) > 0:
+            print(f'Hello, {player_name}')
+            word_guess(3,5)
+            return
+        else:
+            wrong_name = True
+        print('wrong_name')
 
 def clear_screen():
     """
@@ -105,8 +115,7 @@ def main():
     """
     Main program function.
     """
-    # print_intro()
-    create_charater()
+    print_intro()
     # result = word_guess(3, 5)
 
 main()
