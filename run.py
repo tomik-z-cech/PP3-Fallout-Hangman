@@ -352,9 +352,11 @@ def end_of_program():
     This function prints "Thank you for playing" message.
     """
     clear_screen()
+    # Message to display if player wins.
     if game_winner is True:
         update_highscore()
         display_text(4, 1)
+    # Message to display if player looses.
     elif game_winner is False:
         display_text(5, 1)
 
@@ -411,6 +413,12 @@ def start_game():
 def display_highscores():
     clear_screen()
     print('Highscores')
+    # Open Google worksheet
+    highscore_worksheet = SHEET.worksheet("highscores")
+    highscore_data = highscore_worksheet.get_all_values()
+    sorted_highscores = sorted(highscore_data, key=lambda x: x[1], reverse=False)
+    for each in sorted_highscores:
+        print(each)
     wait_until_keypressed()
     return
 
