@@ -416,8 +416,8 @@ def display_highscores():
     # Open Google worksheet
     highscore_worksheet = SHEET.worksheet("highscores")
     highscore_data = highscore_worksheet.get_all_values()
-    sorted_highscores = sorted(highscore_data, key=lambda x: x[1], reverse=False)
-    for each in sorted_highscores:
+    sorted_highscs = sorted(highscore_data, key=lambda x: x[1], reverse=False)
+    for each in sorted_highscs:
         print(each)
     wait_until_keypressed()
     return
