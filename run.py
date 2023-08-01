@@ -117,6 +117,7 @@ def word_guess(difficulty, guesses):
     # does not run out of guesses.
     while word_guessed_correctly is False and guesses > 0:
         clear_screen()
+        print(Fore.YELLOW + '\n')
         print(f'Your word to guess is {difficulty} letters long.')
         # Initialize list of progress.
         progress_list = []
@@ -142,6 +143,7 @@ def word_guess(difficulty, guesses):
         print(f'Your progress : {progress_word}')
         print(f'You already tried this letters : {letters_guessed}')
         print(f'You have {guesses} guesses left')
+        print('\n' + Style.RESET_ALL)
         # Statement that changes color of message depends
         # on the importnace of message.
         if message_color == 1:
