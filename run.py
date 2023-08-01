@@ -38,8 +38,7 @@ perk_luck = 0
 perk_charisma = 0
 alphabet = ('abcdefghijklmnopqrstuvwxyz')
 game_winner = True
-# levels = [1, 2, 3, 4]
-levels = [1]
+levels = [1, 2, 3, 4]
 launch_time = 0
 
 
@@ -412,11 +411,13 @@ def start_game():
 
 def display_highscores():
     clear_screen()
-    print('Top 10 players')
+    print(Fore.GREEN + 'Top 10 players\n' + Style.RESET_ALL)
     # Open Google worksheet
     highscore_worksheet = SHEET.worksheet("highscores")
     # Get all values from worksheet
     highscore_data = highscore_worksheet.get_all_values()
+    if len(highscore_data) == 0:
+        print('No entries yet !')
     # Sort data from worksheet by the second value + ascending
     sorted_highscs = sorted(highscore_data, key=lambda x: x[1], reverse=False)
     # For each entry print name and game_time
