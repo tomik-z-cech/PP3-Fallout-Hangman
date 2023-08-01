@@ -210,14 +210,15 @@ def create_charater():
         print(Fore.YELLOW + '└────────────────────', end='')
         print('───────────────────┘' + Style.RESET_ALL)
         # Message to display if entered name is not correct.
-        if wrong_name is True:
+        if wrong_name is True or player_name.isalpha() is True:
             print(Fore.RED + 'Your name was invalid !', end=' ')
             print('Try again !' + Style.RESET_ALL)
         # Players name input
         print(Fore.BLUE + "What's your name ?" + Style.RESET_ALL)
         player_name = input('')
         # If player tries to pass empty string
-        if len(player_name) > 0:
+        if len(player_name) > 0 and player_name.isalpha() is True:
+            player_name = player_name.capitalize()
             wrong_perk = False
             # Selection of perk
             while True:
@@ -240,7 +241,7 @@ def create_charater():
                 print("ne,select your perk.Press i,l or c." + Style.RESET_ALL)
                 # Message thats displayed if selection of perk was incorrect.
                 if wrong_perk is True:
-                    print(Fore.RED + '      Your choice of perk was', end=' ')
+                    print(Fore.RED + 'Your choice of perk was', end=' ')
                     print('invalid, try again !' + Style.RESET_ALL)
                 # Reading players selection of perk
                 perk_choice = readchar.readchar()
