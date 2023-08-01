@@ -420,9 +420,12 @@ def display_highscores():
     if len(highscore_data) == 0:
         print('No entries yet !')
     # Transform of string time in seconds to float time in seconds
-    highscore_floats = [[each[0], float(each[1][:5].replace(',', '.'))] for each in highscore_data]
+    highsc_floats = [
+        [each[0], float(each[1][:5].replace(',', '.'))]
+        for each in highscore_data
+    ]
     # Sort data from worksheet by the second value + ascending
-    sorted_highscs = sorted(highscore_floats, key=lambda x: x[1], reverse=False)
+    sorted_highscs = sorted(highsc_floats, key=lambda x: x[1], reverse=False)
     # For each entry print name and game_time
     # Stop at 10th entry
     position = 1
@@ -432,7 +435,7 @@ def display_highscores():
         time_rounded = round((each[1]) / 60, 2)
         # Print position in leaderboard, name of
         # player and time in minutes
-        print(f'{position}. Player : {each[0]} - Time : {time_rounded} minutes.')
+        print(f'{position}. Player: {each[0]} - Time: {time_rounded} minutes.')
         position += 1
     wait_until_keypressed()
     return
