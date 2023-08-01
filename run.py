@@ -53,6 +53,7 @@ def display_text(row, column, delay=0.012):
     # Call Google sheets and select column A and row from function parametr.
     text_worksheet = SHEET.worksheet("text")
     text_to_write = text_worksheet.cell(row, column).value
+    text_to_write = text_to_write.replace('PLAYER', player_name)
     # Write imported text with 0.012 seconds delay after each character typed.
     print(Fore.GREEN + '')
     for char in text_to_write:
