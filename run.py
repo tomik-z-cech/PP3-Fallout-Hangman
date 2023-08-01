@@ -29,6 +29,14 @@ SHEET = GSPREAD_CLIENT.open('fallout_hangman')
 NUCLEAR_EMOJI = '\u2622'
 MAN_EMOJI = '\U0001F468\u200D\U0001F52C'
 WOMAN_EMOJI = '\U0001F469\u200D\U0001F52C'
+PALM = '\U0001F334'
+SUN = '\U0001F31E'
+ISLAND = '\U0001F3DD'
+MOUNTAIN = '\U0001F304'
+SKULL = '\U0001F480'
+SKULL_CROSS = '\U00002620'
+DIZZY_FACE = '\U0001F635'
+COFFIN = '\U0001F6B8'
 
 # Global variables
 player_name = ''
@@ -330,8 +338,15 @@ def end_of_program():
     This function prints "Thank you for playing" message.
     """
     clear_screen()
-    print(f'Winner : {game_winner}')
+    if game_winner is True:
+        display_text(4, 1)
+        print(f'{PALM} {SUN} {ISLAND} {MOUNTAIN}')
+    elif game_winner is False:
+        display_text(5, 1)
+        print(f'{SKULL} {COFFIN} {DIZZY_FACE} {SKULL_CROSS}')
+    print('\n\n')
     print('Thank you for playing.')
+    print('Created by Tomas Kubancik as PP3.')
 
 
 def wait_until_keypressed():
@@ -357,16 +372,23 @@ def start_game():
     # Loop to iterate through levels.
     for level in levels:
         row = 1
+        # Display text according level.
         display_text(row, level)
         row = 2
+        # Display text according level.
         display_text(row, level)
+        # Call word_guess function with different level params.
         round_result = word_guess(level + 3, (level * 5) + 10)
+        # If round lost = game over.
         if round_result is False:
             game_winner = False
             break
         row = 3
+        # Display text according level.
         display_text(row, level)
+        # Call word_guess function with different level params.     
         round_result = word_guess(level + 3, (level * 5) + 10)
+        # If round lost = game over.
         if round_result is False:
             game_winner = False
             break
