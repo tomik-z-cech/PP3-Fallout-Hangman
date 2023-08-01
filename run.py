@@ -330,6 +330,7 @@ def print_intro():
             create_charater()
             break
         elif menu_choice.upper() == 'H':
+            display_highscores()
             break
         # Return back to this loop if players selection was wrong.
         else:
@@ -341,9 +342,10 @@ def update_highscore():
     Function updates Google sheet with game time
     of winner.
     """
+    # Read current time
     finish_time = time.time()
+    # Calculate game time
     play_time = finish_time - launch_time
-    print(play_time)
     # Open Google worksheet
     highscore_worksheet = SHEET.worksheet("highscores")
     # Update highscores worksheet with name and play_time.
@@ -418,11 +420,30 @@ def start_game():
     return
 
 
+def display_highscores():
+    clear_screen()
+    print('Highscores')
+    wait_until_keypressed()
+    return
+
+
 def main():
     """
     Main program function.
     """
-    print_intro()
+    while True:
+        # Calling global variables
+        global player_name, perk_inteligence, perk_luck
+        global perk_charisma, game_winner, launch_time
+        # Redefining variables each time game is started
+        # to avoid multiple perks and incorrect data used
+        player_name = ''
+        perk_inteligence = 0
+        perk_luck = 0
+        perk_charisma = 0
+        game_winner = True
+        launch_time = 0
+        print_intro()
 
 
 if __name__ == '__main__':
