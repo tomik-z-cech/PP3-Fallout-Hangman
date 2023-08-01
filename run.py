@@ -45,7 +45,9 @@ perk_luck = 0
 perk_charisma = 0
 alphabet = ('abcdefghijklmnopqrstuvwxyz')
 game_winner = True
-levels = [1, 2, 3, 4]
+# levels = [1, 2, 3, 4]
+levels = [1]
+launch_time = 0
 
 
 def display_text(row, column, delay=0.012):
@@ -78,11 +80,11 @@ def update_history():
     # Open Google worksheet
     history_worksheet = SHEET.worksheet("history")
     # Get current time and date
-    time_now = str(datetime.now().time())
+    start_time = str(datetime.now().time())
     date_now = str(datetime.now().date())
     # Update history worksheet with name, date, time and used perks.
     history_worksheet.append_row([
-        player_name, date_now, time_now,
+        player_name, date_now, start_time,
         perk_inteligence, perk_luck, perk_charisma
     ])
 
@@ -117,7 +119,7 @@ def word_guess(difficulty, guesses):
     # does not run out of guesses.
     while word_guessed_correctly is False and guesses > 0:
         clear_screen()
-        print(Fore.YELLOW + '\n')
+        print(Fore.BLUE + '\n')
         print(f'Your word to guess is {difficulty} letters long.')
         # Initialize list of progress.
         progress_list = []
@@ -334,6 +336,21 @@ def print_intro():
             wrong_choice = True
 
 
+def update_highscore():
+    """
+    Function updates Google sheet with game time
+    of winner.
+    """
+    finish_time = time.time()
+    play_time = finish_time - launch_time
+    print(play_time)
+    # Open Google worksheet
+    highscore_worksheet = SHEET.worksheet("highscores")
+    # Update highscores worksheet with name and play_time.
+    highscore_worksheet.append_row([player_name, play_time])
+    return
+
+
 def end_of_program():
     """
     This is the last function to be executed.
@@ -341,14 +358,15 @@ def end_of_program():
     """
     clear_screen()
     if game_winner is True:
+        update_highscore()
         display_text(4, 1)
         print(f'{PALM} {SUN} {ISLAND} {MOUNTAIN}')
     elif game_winner is False:
         display_text(5, 1)
         print(f'{SKULL} {COFFIN} {DIZZY_FACE} {SKULL_CROSS}')
-    print('\n\n')
+    print('\n')
     print('Thank you for playing.')
-    print('Created by Tomas Kubancik as PP3.')
+    print('Created by Tomas Kubancik as PP3 in 2023.')
 
 
 def wait_until_keypressed():
@@ -370,8 +388,9 @@ def start_game():
     Function starts the game in loop for different levels and difficulty.
     """
     # Call global variable.
-    global game_winner
+    global game_winner, launch_time
     # Loop to iterate through levels.
+    launch_time = time.time()
     for level in levels:
         row = 1
         # Display text according level.
@@ -388,13 +407,14 @@ def start_game():
         row = 3
         # Display text according level.
         display_text(row, level)
-        # Call word_guess function with different level params.     
+        # Call word_guess function with different level params.
         round_result = word_guess(level + 3, (level * 5) + 10)
         # If round lost = game over.
         if round_result is False:
             game_winner = False
             break
         continue
+    end_of_program()
     return
 
 
@@ -403,7 +423,6 @@ def main():
     Main program function.
     """
     print_intro()
-    end_of_program()
 
 
 if __name__ == '__main__':
