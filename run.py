@@ -424,7 +424,9 @@ def display_highscores():
     # Stop at 10th entry
     position = 1
     for each in sorted_highscs[0:10]:
-        print(f'{position}. Player : {each[0]} - Time : {each[1]}')
+        # Print position in leaderboard, name of
+        # player and 5 characters of game time
+        print(f'{position}. Player : {each[0]} - Time : {each[1][:5]} seconds')
         position += 1
     wait_until_keypressed()
     return
