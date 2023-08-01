@@ -29,14 +29,7 @@ SHEET = GSPREAD_CLIENT.open('fallout_hangman')
 NUCLEAR_EMOJI = '\u2622'
 MAN_EMOJI = '\U0001F468\u200D\U0001F52C'
 WOMAN_EMOJI = '\U0001F469\u200D\U0001F52C'
-PALM = '\U0001F334'
-SUN = '\U0001F31E'
-ISLAND = '\U0001F3DD'
-MOUNTAIN = '\U0001F304'
-SKULL = '\U0001F480'
-SKULL_CROSS = '\U00002620'
-DIZZY_FACE = '\U0001F635'
-COFFIN = '\U0001F6B8'
+
 
 # Global variables
 player_name = ''
@@ -144,7 +137,7 @@ def word_guess(difficulty, guesses):
         # Player sees the following information.
         print(f'Your progress : {progress_word}')
         print(f'You already tried this letters : {letters_guessed}')
-        print(f'You have {guesses} guesses left')
+        print(f'Guesses left : {guesses}')
         print('\n' + Style.RESET_ALL)
         # Statement that changes color of message depends
         # on the importnace of message.
@@ -362,13 +355,8 @@ def end_of_program():
     if game_winner is True:
         update_highscore()
         display_text(4, 1)
-        print(f'{PALM} {SUN} {ISLAND} {MOUNTAIN}')
     elif game_winner is False:
         display_text(5, 1)
-        print(f'{SKULL} {COFFIN} {DIZZY_FACE} {SKULL_CROSS}')
-    print('\n')
-    print('Thank you for playing.')
-    print('Created by Tomas Kubancik as PP3 in 2023.')
 
 
 def wait_until_keypressed():
