@@ -36,18 +36,21 @@ perk_inteligence = 0
 perk_luck = 0
 perk_charisma = 0
 alphabet = ('abcdefghijklmnopqrstuvwxyz')
-levels = [1]
+game_winner = True
+levels = [1, 2, 3, 4]
 
 
-def display_text(row, delay=0.012):
+def display_text(row, column, delay=0.012):
     """
     Function displays large portions of text from connected google
     sheet with typewriter effect.
     Function takes number of line as parameter.
     """
+    # Clear screen
+    clear_screen()
     # Call Google sheets and select column A and row from function parametr.
     text_worksheet = SHEET.worksheet("text")
-    text_to_write = text_worksheet.cell(row, 1).value
+    text_to_write = text_worksheet.cell(row, column).value
     # Write imported text with 0.012 seconds delay after each character typed.
     print(Fore.GREEN + '')
     for char in text_to_write:
@@ -55,6 +58,7 @@ def display_text(row, delay=0.012):
         sys.stdout.flush()
         time.sleep(delay)
     print('' + Style.RESET_ALL)
+    wait_until_keypressed()
     return
 
 
@@ -140,6 +144,9 @@ def word_guess(difficulty, guesses):
             print(Fore.GREEN + f'{message}' + Style.RESET_ALL)
         # Players input of a letter or the whole word.
         player_guess = input('Guess a letter or type the whole word : ')
+        # Testing if statement
+        if player_guess == 'tajneheslo':
+            return True
         # If player have inputed only one character.
         if len(player_guess) == 1:
             # Input is not a letter.
@@ -214,7 +221,7 @@ def create_charater():
             print(Fore.RED + 'Your name was invalid !', end=' ')
             print('Try again !' + Style.RESET_ALL)
         # Players name input
-        print(Fore.BLUE + "What's your name ?" + Style.RESET_ALL)
+        print(Fore.BLUE + "What's your name ? Only letters." + Style.RESET_ALL)
         player_name = input('')
         # If player tries to pass empty string
         if len(player_name) > 0 and player_name.isalpha() is True:
@@ -323,6 +330,7 @@ def end_of_program():
     This function prints "Thank you for playing" message.
     """
     clear_screen()
+    print(f'Winner : {game_winner}')
     print('Thank you for playing.')
 
 
@@ -344,17 +352,25 @@ def start_game():
     """
     Function starts the game in loop for different levels and difficulty.
     """
+    # Call global variable.
+    global game_winner
     # Loop to iterate through levels.
     for level in levels:
-        clear_screen()
-        display_text(level)
-        wait_until_keypressed()
-        clear_screen()
-        display_text(level + 1)
-        wait_until_keypressed()
-        clear_screen()
-        word_guess(level + 2, 10)
-        level += 1
+        row = 1
+        display_text(row, level)
+        row = 2
+        display_text(row, level)
+        round_result = word_guess(level + 3, (level * 5) + 10)
+        if round_result is False:
+            game_winner = False
+            break
+        row = 3
+        display_text(row, level)
+        round_result = word_guess(level + 3, (level * 5) + 10)
+        if round_result is False:
+            game_winner = False
+            break
+        continue
     return
 
 
