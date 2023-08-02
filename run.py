@@ -392,7 +392,7 @@ def start_game():
         # Display text according level.
         display_text(row, level)
         # Call word_guess function with different level params.
-        round_result = word_guess(level + 3, (level * 5) + 10)
+        round_result = word_guess(level + 3, (level * 2) + 10)
         # If round lost = game over.
         if round_result is False:
             game_winner = False
@@ -401,7 +401,7 @@ def start_game():
         # Display text according level.
         display_text(row, level)
         # Call word_guess function with different level params.
-        round_result = word_guess(level + 3, (level * 5) + 10)
+        round_result = word_guess(level + 3, (level * 2) + 10)
         # If round lost = game over.
         if round_result is False:
             game_winner = False
