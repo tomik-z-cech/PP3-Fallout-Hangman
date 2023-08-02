@@ -54,6 +54,7 @@ def display_text(row, column, delay=0.012):
     text_worksheet = SHEET.worksheet("text")
     text_to_write = text_worksheet.cell(row, column).value
     text_to_write = text_to_write.replace('PLAYER', player_name)
+    text_to_write = text_to_write.replace('BREAK', '\n')
     # Write imported text with 0.012 seconds delay after each character typed.
     print(Fore.GREEN + '')
     for char in text_to_write:
