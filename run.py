@@ -311,12 +311,14 @@ def print_intro():
         print(' Start Game                        │' + Style.RESET_ALL)
         print(Fore.WHITE + '│ ' + Fore.GREEN + 'H' + Fore.WHITE + ' -', end='')
         print(' High Scores                       │' + Style.RESET_ALL)
+        print(Fore.WHITE + '│ ' + Fore.GREEN + 'E' + Fore.WHITE + ' -', end='')
+        print(' Exit                              │' + Style.RESET_ALL)
         print(Fore.WHITE + '└──────────────────────', end='')
         print('─────────────────┘' + Style.RESET_ALL)
         # Message to be displayed if selection was wrong.
         if wrong_choice is True:
             print(Fore.RED + 'Your choice was invalid !' + Style.RESET_ALL)
-        print('Please make a menu choice, Press S or H.')
+        print('Please make a menu choice, Press S, H or E.')
         # Reading players selection
         menu_choice = readchar.readchar()
         # calling functions based on players selection.
@@ -326,6 +328,12 @@ def print_intro():
         elif menu_choice.upper() == 'H':
             display_highscores()
             break
+        elif menu_choice.upper() == 'E':
+            clear_screen()
+            print(Fore.YELLOW + '\nThank you for playing.\n' + Style.RESET_ALL)
+            print('This project was creted as student portfolio', end=' ')
+            print('project 3 by Tomas Kubancik in 2023.')
+            sys.exit()
         # Return back to this loop if players selection was wrong.
         else:
             wrong_choice = True
