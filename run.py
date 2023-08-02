@@ -331,7 +331,7 @@ def print_intro():
         elif menu_choice.upper() == 'E':
             clear_screen()
             print(Fore.YELLOW + '\nThank you for playing.\n' + Style.RESET_ALL)
-            print('This project was creted as student portfolio', end=' ')
+            print('This project was creted as student portfolio\n', end=' ')
             print('project 3 by Tomas Kubancik in 2023.')
             sys.exit()
         # Return back to this loop if players selection was wrong.
