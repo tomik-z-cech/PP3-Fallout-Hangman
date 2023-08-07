@@ -331,7 +331,7 @@ def print_intro():
         elif menu_choice.upper() == 'E':
             clear_screen()
             print(Fore.YELLOW + '\nThank you for playing.\n' + Style.RESET_ALL)
-            print('This project was creted as student portfolio\n', end=' ')
+            print('This project was creted as student portfolio\n', end='')
             print('project 3 by Tomas Kubancik in 2023.')
             sys.exit()
         # Return back to this loop if players selection was wrong.
@@ -420,6 +420,11 @@ def start_game():
 
 
 def display_highscores():
+    """
+    This function reads the worksheet highscores and pulls all values.
+    Sorts out values by time in ascending order and prints first 10.
+    If no entries 'No entries yet !' message is displayed.
+    """
     clear_screen()
     print(Fore.GREEN + 'Top 10 players\n' + Style.RESET_ALL)
     # Open Google worksheet
