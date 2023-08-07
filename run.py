@@ -47,7 +47,7 @@ numbers_picked = []
 
 def random_1_50():
     """
-    Function generates number 1-50 and checks if not generated previousely.
+    Function generates number 1-50 and checks if not generated previously.
     """
     while True:
         generated = random.randint(1, 50)
@@ -64,7 +64,7 @@ def display_text(row, column, delay=0.012):
     """
     # Clear screen
     clear_screen()
-    # Call Google sheets and select column A and row from function parametr.
+    # Call Google sheets and select column A and row from function parameter.
     text_worksheet = SHEET.worksheet("text")
     text_to_write = text_worksheet.cell(row, column).value
     text_to_write = text_to_write.replace('PLAYER', player_name)
@@ -106,10 +106,10 @@ def update_history():
 def word_guess(difficulty, guesses):
     """
     Function randomly takes a word from google sheet.
-    Function takes parametr of difficulty = lenght of word selected.
-    Function take parametr of guesses = how many gueses does player have.
+    Function takes parameter of difficulty = length of word selected.
+    Function take parameter of guesses = how many guesses does player have.
     """
-    # Initail setting for color and value of message returned to player
+    # Initial setting for color and value of message returned to player
     # after each letter guess.
     message_color = 3
     message = ''
@@ -126,7 +126,7 @@ def word_guess(difficulty, guesses):
     # Open Google worksheet.
     words_sheet = SHEET.worksheet("words")
     # Generate random number 1-50 and import a word based on
-    # difficulty = lenght of word and genarated number.
+    # difficulty = length of word and generated number.
     random_number = random_1_50()
     word_to_guess = words_sheet.cell(random_number, difficulty).value
     # Cycle that runs until word fully guessed or player
@@ -171,7 +171,7 @@ def word_guess(difficulty, guesses):
         print(f'Guesses left : {guesses}')
         print('\n' + Style.RESET_ALL)
         # Statement that changes color of message depends
-        # on the importnace of message.
+        # on the importance of message.
         if message_color == 1:
             print(Fore.RED + f'{message}' + Style.RESET_ALL)
         elif message_color == 2:
@@ -223,7 +223,7 @@ def word_guess(difficulty, guesses):
         elif len(player_guess) == 0:
             message_color = 2
             message = 'Your guess cannot be empty'
-        # The lenght of word to guess and players guess are different.
+        # The length of word to guess and players guess are different.
         else:
             message_color = 1
             message = 'Length of your guess isnt same to the lenght of word'
@@ -275,7 +275,7 @@ def create_charater():
                 print(Fore.YELLOW + '┌───────────────────────────────', end='')
                 print('───────────────────────────────────┐' + Style.RESET_ALL)
                 print(Fore.YELLOW + '│ ' + Fore.GREEN + 'I', end=' ')
-                print(Fore.WHITE + '- Inteligent - shortens the leng', end='')
+                print(Fore.WHITE + '- Intelligent - shortens the leng', end='')
                 print('th of guesed word by 1 letter' + Fore.YELLOW + '  │')
                 print(Fore.YELLOW + '│ ' + Fore.GREEN + 'L', end=' ')
                 print(Fore.WHITE + '- Lucky - adds 5 extra guesses', end=' ')
@@ -286,7 +286,7 @@ def create_charater():
                 print(Fore.YELLOW + '└──────────────────────────────', end='')
                 print('────────────────────────────────────┘')
                 print(Fore.BLUE + f"Hello {player_name},The Chosen O", end='')
-                print("ne,select your perk.Press i,l or c." + Style.RESET_ALL)
+                print("ne, select your perk.Press i,l or c." + Style.RESET_ALL)
                 # Message thats displayed if selection of perk was incorrect.
                 if wrong_perk is True:
                     print(Fore.RED + 'Your choice of perk was', end=' ')
@@ -480,7 +480,7 @@ def display_highscores():
     position = 1
     for each in sorted_highscs[0:10]:
         # Convert float seconds into minutes with only
-        # two deciaml places
+        # two decimal places
         time_rounded = round((each[1]) / 60, 2)
         # Print position in leaderboard, name of
         # player and time in minutes
