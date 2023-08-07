@@ -29,6 +29,8 @@ SHEET = GSPREAD_CLIENT.open('fallout_hangman')
 NUCLEAR_EMOJI = '\u2622'
 MAN_EMOJI = '\U0001F468\u200D\U0001F52C'
 WOMAN_EMOJI = '\U0001F469\u200D\U0001F52C'
+SKULL = '\u2620'
+LETTER = '\u2753'
 
 
 # Global variables
@@ -56,6 +58,12 @@ def display_text(row, column, delay=0.012):
     text_to_write = text_to_write.replace('PLAYER', player_name)
     text_to_write = text_to_write.replace('BREAK', '\n')
     # Write imported text with 0.012 seconds delay after each character typed.
+    print(Fore.YELLOW + '┌────────────────────', end='')
+    print('───────────────────┐' + Style.RESET_ALL)
+    print(Fore.YELLOW + f'│      {SKULL}  Meantime in ', end='')
+    print(f' Wasteland {SKULL}      │' + Style.RESET_ALL)
+    print(Fore.YELLOW + '└────────────────────', end='')
+    print('───────────────────┘' + Style.RESET_ALL)
     print(Fore.GREEN + '')
     for char in text_to_write:
         sys.stdout.write(char)
@@ -112,9 +120,6 @@ def word_guess(difficulty, guesses):
     # Cycle that runs until word fully guessed or player
     # does not run out of guesses.
     while word_guessed_correctly is False and guesses > 0:
-        clear_screen()
-        print(Fore.BLUE + '\n')
-        print(f'Your word to guess is {difficulty} letters long.')
         # Initialize list of progress.
         progress_list = []
         # If perk charisma is used, reveal one letter each game.
@@ -136,6 +141,15 @@ def word_guess(difficulty, guesses):
         if '-' not in progress_list:
             return True
         # Player sees the following information.
+        clear_screen()
+        print(Fore.YELLOW + '┌────────────────────', end='')
+        print('───────────────────┐' + Style.RESET_ALL)
+        print(Fore.YELLOW + f'│      {LETTER}    Guess the ', end='')
+        print(f' Word   {LETTER}         │' + Style.RESET_ALL)
+        print(Fore.YELLOW + '└────────────────────', end='')
+        print('───────────────────┘' + Style.RESET_ALL)
+        print(Fore.BLUE + '\n')
+        print(f'Your word to guess is {difficulty} letters long.')
         print(f'Your progress : {progress_word}')
         print(f'You already tried this letters : {letters_guessed}')
         print(f'Guesses left : {guesses}')
