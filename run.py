@@ -151,6 +151,10 @@ def word_guess(difficulty, guesses):
         # If all letters are revealed (progress list has no '-'
         # value left), player wins.
         if '-' not in progress_list:
+            clear_screen()
+            print(Fore.GREEN + 'Great, the hidden word was', end=' ')
+            print(f': "{word_to_guess}" !' + Style.RESET_ALL)
+            wait_until_keypressed()
             return True
         # Player sees the following information.
         clear_screen()
@@ -205,6 +209,10 @@ def word_guess(difficulty, guesses):
         elif len(player_guess) == len(word_to_guess):
             # Correct word.
             if player_guess == word_to_guess:
+                clear_screen()
+                print(Fore.GREEN + 'Great, the hidden word was', end=' ')
+                print(f': "{word_to_guess}" !' + Style.RESET_ALL)
+                wait_until_keypressed()
                 return True
             # Incorrect word.
             else:
@@ -219,6 +227,10 @@ def word_guess(difficulty, guesses):
         else:
             message_color = 1
             message = 'Length of your guess isnt same to the lenght of word'
+    clear_screen()
+    print(Fore.RED + 'The hidden word was', end=' ')
+    print(f': "{word_to_guess}" !' + Style.RESET_ALL)
+    wait_until_keypressed()
     return False
 
 
