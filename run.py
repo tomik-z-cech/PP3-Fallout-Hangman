@@ -43,14 +43,15 @@ game_winner = True
 levels = [1, 2, 3, 4]
 launch_time = 0
 numbers_picked = []
-# max number of rows in worksheet 
+# max number of rows in worksheet
 # if amount of words incresed, this needs to be updated
 max_word_number = 50
 
 
 def random_word_number():
     """
-    Function generates number 1-max_word_number and checks if not generated previously.
+    Function generates number 1-max_word_number and checks if not
+    generated previously.
     """
     while True:
         generated = random.randint(1, max_word_number)
