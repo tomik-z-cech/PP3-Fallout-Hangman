@@ -176,9 +176,6 @@ def word_guess(difficulty, guesses):
             print(Fore.GREEN + f'{message}' + Style.RESET_ALL)
         # Players input of a letter or the whole word.
         player_guess = input('Guess a letter or type the whole word : ')
-        # Testing if statement
-        if player_guess == 'tajneheslo':
-            return True
         # If player have inputed only one character.
         if len(player_guess) == 1:
             # Input is not a letter.
@@ -239,7 +236,7 @@ def create_charater():
     while True:
         clear_screen()
         # Call for global variables.
-        global player_name, perk_inteligence, perk_luck, perk_charisma 
+        global player_name, perk_inteligence, perk_luck, perk_charisma
         print('\n\n')
         # Output on display for user.
         print(Fore.YELLOW + '┌────────────────────', end='')
