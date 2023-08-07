@@ -42,6 +42,18 @@ alphabet = ('abcdefghijklmnopqrstuvwxyz')
 game_winner = True
 levels = [1, 2, 3, 4]
 launch_time = 0
+numbers_picked = []
+
+
+def random_1_50():
+    """
+    Function generates number 1-50 and checks if not generated previousely.
+    """
+    while True:
+        generated = random.randint(1, 50)
+        if generated not in numbers_picked:
+            numbers_picked.append(generated)
+            return generated
 
 
 def display_text(row, column, delay=0.012):
@@ -115,7 +127,7 @@ def word_guess(difficulty, guesses):
     words_sheet = SHEET.worksheet("words")
     # Generate random number 1-50 and import a word based on
     # difficulty = lenght of word and genarated number.
-    random_number = random.randint(1, 50)
+    random_number = random_1_50()
     word_to_guess = words_sheet.cell(random_number, difficulty).value
     # Cycle that runs until word fully guessed or player
     # does not run out of guesses.
@@ -227,7 +239,7 @@ def create_charater():
     while True:
         clear_screen()
         # Call for global variables.
-        global player_name, perk_inteligence, perk_luck, perk_charisma
+        global player_name, perk_inteligence, perk_luck, perk_charisma 
         print('\n\n')
         # Output on display for user.
         print(Fore.YELLOW + '┌────────────────────', end='')
@@ -476,7 +488,7 @@ def main():
     while True:
         # Calling global variables
         global player_name, perk_inteligence, perk_luck
-        global perk_charisma, game_winner, launch_time
+        global perk_charisma, game_winner, launch_time, numbers_picked
         # Redefining variables each time game is started
         # to avoid multiple perks and incorrect data used
         player_name = ''
@@ -485,6 +497,7 @@ def main():
         perk_charisma = 0
         game_winner = True
         launch_time = 0
+        numbers_picked = []
         print_intro()
 
 
