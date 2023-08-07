@@ -43,14 +43,17 @@ game_winner = True
 levels = [1, 2, 3, 4]
 launch_time = 0
 numbers_picked = []
+# max number of rows in worksheet 
+# if amount of words incresed, this needs to be updated
+max_word_number = 50
 
 
-def random_1_50():
+def random_word_number():
     """
-    Function generates number 1-50 and checks if not generated previously.
+    Function generates number 1-max_word_number and checks if not generated previously.
     """
     while True:
-        generated = random.randint(1, 50)
+        generated = random.randint(1, max_word_number)
         if generated not in numbers_picked:
             numbers_picked.append(generated)
             return generated
@@ -127,7 +130,7 @@ def word_guess(difficulty, guesses):
     words_sheet = SHEET.worksheet("words")
     # Generate random number 1-50 and import a word based on
     # difficulty = length of word and generated number.
-    random_number = random_1_50()
+    random_number = random_word_number()
     word_to_guess = words_sheet.cell(random_number, difficulty).value
     # Cycle that runs until word fully guessed or player
     # does not run out of guesses.
@@ -152,7 +155,7 @@ def word_guess(difficulty, guesses):
         # value left), player wins.
         if '-' not in progress_list:
             clear_screen()
-            print(Fore.GREEN + 'Great, the hidden word was', end=' ')
+            print(Fore.GREEN + 'Great, the hidden word was :', end=' ')
             print(f': "{word_to_guess}" !' + Style.RESET_ALL)
             wait_until_keypressed()
             return True
