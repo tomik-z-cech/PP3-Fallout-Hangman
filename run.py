@@ -193,22 +193,22 @@ def word_guess(difficulty, guesses):
             # Input was already selected previously.
             elif player_guess in letters_guessed:
                 message_color = 2
-                message = 'You already tried this letter'
+                message = 'You already tried this letter ...'
             # Input is not in the word to guess.
             elif player_guess not in word_to_guess:
                 letters_guessed.append(player_guess)
                 guesses -= 1
                 message_color = 1
-                message = 'The letter is not in it ...'
+                message = 'The letter is not in the hidden word ...'
             # Correct guess.
             elif player_guess in word_to_guess:
                 letters_guessed.append(player_guess)
                 guesses -= 1
                 message_color = 3
-                message = "That's correct"
+                message = "That's correct ;)"
             else:
                 message_color = 2
-                message = 'Something went wrong'
+                message = 'Something went wrong ...'
         # Player guessed the whole word and the lenght of word is correct.
         elif len(player_guess) == len(word_to_guess):
             # Correct word.
@@ -221,16 +221,16 @@ def word_guess(difficulty, guesses):
             # Incorrect word.
             else:
                 message_color = 1
-                message = 'Thats not the word'
+                message = 'Thats not the word ...'
                 guesses -= 1
         # Player tries to pass in empty string.
         elif len(player_guess) == 0:
             message_color = 2
-            message = 'Your guess cannot be empty'
+            message = 'Your guess cannot be empty ...'
         # The length of word to guess and players guess are different.
         else:
             message_color = 1
-            message = 'Length of your guess isnt same to the lenght of word'
+            message = 'Length of your guess isnt same to the lenght of word.'
     clear_screen()
     print(Fore.RED + 'The hidden word was', end=' ')
     print(f': "{word_to_guess}" !' + Style.RESET_ALL)
@@ -280,7 +280,7 @@ def create_charater():
                 print('───────────────────────────────────┐' + Style.RESET_ALL)
                 print(Fore.YELLOW + '│ ' + Fore.GREEN + 'I', end=' ')
                 print(Fore.WHITE + '- Intelligent - shortens the leng', end='')
-                print('th of guesed word by 1 letter' + Fore.YELLOW + '  │')
+                print('th of guesed word by 1 letter' + Fore.YELLOW + ' │')
                 print(Fore.YELLOW + '│ ' + Fore.GREEN + 'L', end=' ')
                 print(Fore.WHITE + '- Lucky - adds 5 extra guesses', end=' ')
                 print('to your guess count' + Fore.YELLOW + '             │')
