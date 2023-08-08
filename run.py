@@ -189,7 +189,9 @@ def word_guess(difficulty, guesses):
         # If player have inputed only one character.
         if len(player_guess) == 1:
             # Input is not a letter.
-            if player_guess not in alphabet:
+            if player_guess == '0':
+                print_intro()
+            elif player_guess not in alphabet:
                 message_color = 1
                 message = 'Input only letters ...'
             # Input was already selected previously.
@@ -248,13 +250,15 @@ def create_charater():
     Perks selection can be only 'I' or 'L' or 'C' otherwise
     error message is returned.
     """
+    # Call for global variables.
+    global player_name, perk_inteligence, perk_luck, perk_charisma
+    # Reset player name
+    player_name = ''
     # Initial variable of wrong name that's used later in function.
     wrong_name = False
     # Loop that finishes when correct name entered.
     while True:
         clear_screen()
-        # Call for global variables.
-        global player_name, perk_inteligence, perk_luck, perk_charisma
         print('\n\n')
         # Output on display for user.
         print(Fore.YELLOW + '┌────────────────────', end='')
@@ -265,13 +269,15 @@ def create_charater():
         print('───────────────────┘' + Style.RESET_ALL)
         # Message to display if entered name is not correct.
         if wrong_name is True or player_name.isalpha() is True:
-            print(Fore.RED + 'Your name was invalid !', end=' ')
+            print(Fore.RED + 'The name was invalid !', end=' ')
             print('Try again !' + Style.RESET_ALL)
         # Players name input
         print(Fore.BLUE + "What's your name ? Only letters." + Style.RESET_ALL)
         player_name = input('')
         # If player tries to pass empty string
-        if len(player_name) > 0 and player_name.isalpha() is True:
+        if player_name == '0':
+            return
+        elif len(player_name) > 0 and player_name.isalpha() is True:
             player_name = player_name.capitalize()
             wrong_perk = False
             # Selection of perk
@@ -300,13 +306,15 @@ def create_charater():
                 # Reading players selection of perk
                 perk_choice = readchar.readchar()
                 # Setting perk based on players selection.
-                if perk_choice.upper() == 'I':
+                if perk_choice.upper() == '0':
+                    print_intro()
+                elif perk_choice.upper() == 'I':
                     perk_inteligence = 1
                     break
-                if perk_choice.upper() == 'L':
+                elif perk_choice.upper() == 'L':
                     perk_luck = 5
                     break
-                if perk_choice.upper() == 'C':
+                elif perk_choice.upper() == 'C':
                     perk_charisma = 1
                     break
                 else:
@@ -356,6 +364,8 @@ def print_intro():
         print(' Exit                              │' + Style.RESET_ALL)
         print(Fore.WHITE + '└──────────────────────', end='')
         print('─────────────────┘' + Style.RESET_ALL)
+        print(Fore.WHITE + 'Input ' + Fore.GREEN + '0 ' + Fore.WHITE, end='')
+        print('at any stage to return to Main menu\n' + Style.RESET_ALL)
         # Message to be displayed if selection was wrong.
         if wrong_choice is True:
             print(Fore.RED + 'Your choice was invalid !' + Style.RESET_ALL)

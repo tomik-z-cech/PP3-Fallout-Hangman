@@ -208,3 +208,15 @@ After they are all reset, function recalculates variables `difficulty` and `gues
 ![print_intro()](/docs/print_intro.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+- **Name :** `create_character()`
+- **Parameters :** None
+- **Goal :** Function is designed to get user's name and perk selection, also to validate that `player_name` are only alphabetical characters and the perk selection is between the characters `I - Intelligence` , `L - Luck` or `C - Charisma`.
+- **Function :** Likewise the previous function `print-intro()`, this function prints Perks menu and waits for a key to be pressed (`readchar` function). If users selection is between the letters I, L or C, program calls next function depending on selection, otherwise error message is displayed.
+- **Flow Chart :** *Appendix 22*
+
+*Appendix 22 - create_character()*
+
+![create_character()](/docs/create_character.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
