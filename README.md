@@ -50,7 +50,7 @@
 
 ![Perk selection](/docs/perk_selection.png)
 
-*Appendix  - Story line*
+*Appendix 4 - Story line*
 
 ![Story line](/docs/storyline.png)
 
@@ -102,12 +102,32 @@
 
 - **Name :** `update_highscore()`
 - **Parameters :** None
-- **Goal :** Function is designed to update high score sheet in connected Google sheet.
-- **Function :** Function reads current time and saves it, based on that function then claculates play time (Play Time = Finish Time - Start Time). Function then connects to Google sheet and appends row with player's name and play time in seconds.
-- **Flow Chart :** *Appendix 10*
+- **Goal :** Function is designed to update high score sheet in connected Google sheet `highscore` *(appendix 11)*.
+- **Function :** Function reads current time and saves it, based on that function then claculates play time (Play Time = Finish Time - Start Time). Function then connects to Google sheet and appends row with player's name and play time in seconds (variables `player_name` and `play_time`)
+- **Flow Chart :** *Appendix 12*
 
-*Appendix 11 - update_highscore()*
+*Appendix 11 - Connected Google sheet - worksheet `highscores`*
 
-![clear_screen()](/docs/update_highscores.png)
+![Worksheet highscores](/docs/worksheet_highscores.png)
+
+*Appendix 12 - update_highscore()*
+
+![update_highscore()](/docs/update_highscores.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+- **Name :** `update_history()`
+- **Parameters :** None
+- **Goal :** Function is designed to update history sheet in connected Google sheet *(appendix 13)* for analytics purposes every time someone plays the game.
+- **Function :** Function reads current date and time, opens Google sheet (worksheet `history`) and appends new row to the worksheet with player's name, date, time, perk (variables `player_name`, `date_now`, `start_time`, `perk_inteligence`, `perk_luck`, `perk_charisma`).
+- **Flow Chart :** *Appendix 14*
+
+*Appendix 13 - Connected Google sheet - worksheet `history`*
+
+![Worksheet history](/docs/worksheet_history.png)
+
+*Appendix 14 - update_history()*
+
+![update_history()](/docs/update_history.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
