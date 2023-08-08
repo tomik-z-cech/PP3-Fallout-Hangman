@@ -10,6 +10,7 @@
 ![Mock Up](/docs/game.gif)
 
 ---
+---
 
 # **2. Table of content**
 
@@ -20,6 +21,7 @@
 - [5. Overall logical flow](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#5-overall-logical-flow)
 - [6. Imports](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#6-imports)
 
+---
 ---
 
 # **3. Description of functionality**
@@ -74,6 +76,7 @@
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
+---
 ---
 
 # **4. Functions**
@@ -236,6 +239,7 @@ After they are all reset, function recalculates variables `difficulty` and `gues
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
 ---
+---
 
 # **5. Overall Logical Flow**
 
@@ -245,6 +249,7 @@ After they are all reset, function recalculates variables `difficulty` and `gues
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
+---
 ---
 
 # **6. Imports**
@@ -256,12 +261,46 @@ To ensure functionality of this program, variable modules had to be imported.
 - **Name of module:** `readchar`
 - **Function :** This module reads one character as user input, returning it as string with lenght 1. Waits until character is available.
 - **Version used :** 4.0.5
-- **Link to documentation:** [Readchar](https://pypi.org/project/readchar/)
+- **Link to documentation:** [readchar](https://pypi.org/project/readchar/)
 
+---
 
 - **Name of module:** `colorama`
 - **Function :** The Python colorama module is a cross-platform library that simplifies the process of adding color to terminal text. It provides a simple and convenient way to add ANSI escape codes to text, making it possible to color text output on Windows as well as other platforms.
 - **Version used :** 0.4.6
-- **Link to documentation:** [Colorama](https://pypi.org/project/colorama/)
+- **Link to documentation:** [colorama](https://pypi.org/project/colorama/)
 
 ---
+
+- **Name of module:** `googleauth`
+- **Function :** This module, google-auth is the Google authentication library for Python. This library provides the ability to authenticate to Google APIs using various methods. It also provides integration with several HTTP libraries.
+- **Version used :** 2.22.0
+- **Link to documentation:** [google-auth](https://pypi.org/project/google-auth/)
+
+---
+
+- **Name of module:** `gspread`
+- **Function :** This module, gspread is a Python API for Google Sheets. Opens a spreadsheet by title, key or url.
+- **Version used :** 5.10.0
+- **Link to documentation:** [gspread](https://docs.gspread.org/en/latest/)
+
+---
+
+- **Name of module:** `json`
+- **Function :** This module enables Python programs to effortlessly communicate with web services, exchange data, and store structured information.
+- **Version used :** built-in
+- **Link to documentation:** [json](https://www.json.org/json-en.html)
+
+---
+
+- **Name of module:** `os`
+- **Function :** This module provides functions for interacting with the operating system. OS comes under Python's standard utility modules. This module provides a portable way of using operating system-dependent functionality.
+- **Version used :** built-in
+- **Link to documentation:** [os](https://docs.python.org/3/library/os.html)
+
+---
+
+- **Name of module:** `random`
+- **Function :** This module is an in-built module of Python that is used to generate random numbers in Python. These are pseudo-random numbers means they are not truly random.
+- **Version used :** built-in
+- **Link to documentation:** [random](https://docs.python.org/3/library/random.html)
