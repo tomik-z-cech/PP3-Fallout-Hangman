@@ -304,3 +304,28 @@ To ensure functionality of this program, variable modules had to be imported.
 - **Function :** This module is an in-built module of Python that is used to generate random numbers in Python. These are pseudo-random numbers means they are not truly random.
 - **Version used :** built-in
 - **Link to documentation:** [random](https://docs.python.org/3/library/random.html)
+
+---
+
+- **Name of module:** `sys`
+- **Function :** This module provides functions and variables which are used to manipulate different parts of the Python Runtime Environment. It lets us access system-specific parameters and functions.
+- **Version used :** built-in
+- **Link to documentation:** [sys](https://docs.python.org/3/library/sys.html)
+
+---
+
+- **Name of module:** `time`
+- **Function :** This module provides many ways of representing time in code, such as objects, numbers, and strings. It also provides functionality other than representing time, like waiting during code execution.
+- **Version used :** built-in
+- **Link to documentation:** [time](https://docs.python.org/3/library/time.html)
+
+---
+
+- **Name of module:** `datetime`
+- **Function :** This module supplies classes for manipulating dates and times. While date and time arithmetic is supported, the focus of the implementation is on efficient attribute extraction for output formatting and manipulation
+- **Version used :** built-in
+- **Link to documentation:** [datetime](https://docs.python.org/3/library/datetime.html)
+
+---
+
+## requirements.txt
