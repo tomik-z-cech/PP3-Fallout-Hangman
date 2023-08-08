@@ -396,10 +396,11 @@ def update_highscore():
     return
 
 
-def end_of_program():
+def end_of_game():
     """
-    This is the last function to be executed.
-    This function prints "Thank you for playing" message.
+    This function is called when game is over.
+    Function displays text based on winning/loosing.
+    Function calls for update_highscore function if user wins.
     """
     clear_screen()
     # Message to display if player wins.
@@ -421,7 +422,7 @@ def wait_until_keypressed():
     print(Fore.YELLOW + 'Press anything to continue ...' + Style.RESET_ALL)
     # Dummy variable only waiting for any key to be pressed.
     pause_var = readchar.readchar()
-    print(pause_var)
+    print(Fore.BLACK + pause_var + Style.RESET_ALL)
     return
 
 
@@ -456,7 +457,7 @@ def start_game():
             game_winner = False
             break
         continue
-    end_of_program()
+    end_of_game()
     return
 
 

@@ -70,6 +70,10 @@
 
 ![High Scores](/docs/highscores.png)
 
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
 ---
 
 # **4. Functions**
+
+## **4.1**
