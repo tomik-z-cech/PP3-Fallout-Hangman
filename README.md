@@ -143,3 +143,15 @@
 ![wait_until_keypressed()](/docs/wait.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+- **Name :** `display_highscores()`
+- **Parameters :** None
+- **Goal :** Function is designed to read high score sheet in connected Google sheet `highscore` *(appendix 11)* and display accordingly.
+- **Function :** Function reads all values in `highscore' Google sheet, if any, displays first 10 in ascending order, if none message "No entries yet" is displayed.
+- **Flow Chart :** *Appendix 16*
+
+*Appendix 16 - display_highscores()*
+
+![display_highscores()](/docs/display_highscores.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
