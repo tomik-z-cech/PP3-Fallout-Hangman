@@ -76,14 +76,24 @@
 
 # **4. Functions**
 
-**Name :** `display_text(row, column, delay=0.012)`
-**Parameters :** `row` `column`
-**Goal :** Function is designed to display large amount of text with a type-writer effect.
-**Function :** Function calls `clear_screen()` first and then connects to Google sheet and targets cell stated as parameters. Function reads this cell and replaces string `PLAYER` with variable `player_name` and string `BREAK` with `\n` to wrap lines in Heroku terminal in suitable positions.
-**Flow Chart :** *Appendix 9*
+- **Name :** `display_text(row, column, delay=0.012)`
+- **Parameters :** `row` `column`
+- **Goal :** Function is designed to display large amount of text with a type-writer effect.
+- **Function :** Function calls `clear_screen()` first and then connects to Google sheet and targets cell stated as parameters. Function reads this cell and replaces string `PLAYER` with variable `player_name` and string `BREAK` with `\n` to wrap lines in Heroku terminal in suitable positions.
+- **Flow Chart :** *Appendix 9*
 
 *Appendix 9 - display_text()*
 
 ![display_text()](/docs/display_text.png)
+
+- **Name :** `clear_screen()`
+- **Parameters :** None
+- **Goal :** Function is designed to clear the terminal screen before next text is displayed. This scrren was made for compatibility between Windows and Unix systems, instead of changing multiple lines of code if enviroment is changed, the code needs to be only changed iside of this function.
+- **Function :** Function only performs one line of code.
+- **Flow Chart :** *Appendix 10*
+
+*Appendix 10 - clear_screen()*
+
+![clear_screen()](/docs/clear_screen.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
