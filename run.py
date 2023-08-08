@@ -53,6 +53,8 @@ def random_word_number():
     Function generates number 1-max_word_number and checks if not
     generated previously.
     """
+    # Run this loop until generated number not in
+    # already picked numbers
     while True:
         generated = random.randint(1, max_word_number)
         if generated not in numbers_picked:
