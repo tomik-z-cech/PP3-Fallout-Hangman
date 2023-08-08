@@ -17,6 +17,7 @@
 - [2. Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 - [3. Description of functionality and rules](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#3-description-of-functionality)
 - [4. Functions](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#4-functions)
+- [5. Overall logical flow](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#5-overall-logical-flow)
 
 ---
 
@@ -232,3 +233,15 @@ After they are all reset, function recalculates variables `difficulty` and `gues
 ![start_game()](/docs/start_game.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+---
+
+# **5. Overall Logical Flow**
+
+*Appendix 24 - Overall flow chart*
+
+![Overall Flowchart](/docs/overall.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+---
