@@ -167,3 +167,15 @@
 ![end_of_game()](/docs/end_of_game.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+- **Name :** `random_word_number()`
+- **Parameters :** None
+- **Goal :** Function is designed to randomly generate number between 1 and variable `max_word_number`.
+- **Function :** Function runs in loop. Each cycle function geneartes number between 1 and value of variable `max_word_number`. This variable is currently set to 50 as the database of words contain 50 entries for each word length. Variable `max_word_number` needs to be adjusted if the database of words is made broader. This function also contains if/else statement to ensure the randomly generated number was not generated already. The cycle is exited only if newly genearted number isn't inluded in `numbers_picked` list.
+- **Flow Chart :** *Appendix 18*
+
+*Appendix 18 - random_word_number()*
+
+![random_word_number()](/docs/random.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
