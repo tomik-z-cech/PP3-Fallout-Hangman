@@ -6,3 +6,12 @@
 - **Key project goal :** To entertain users of this program and test their vocabulary knowledge attempting the **Fallout Mini - Hangman** game.
 - **Audience :** There's no age or any other limit to audience of this application. Target audience are any users searching for simple vocabulary games.
 - **Live version :** Live version of **Fallout Mini - Hangman** game can be viewed [here](https://fallout-hangman-b9afc22725df.herokuapp.com/) .
+
+![Mock Up](/assets/correct_gif.gif)
+
+---
+
+# **2. Table of content**
+
+- [1. Key project information](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#1-key-project-information)
+- [2. Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
