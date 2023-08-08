@@ -220,3 +220,15 @@ After they are all reset, function recalculates variables `difficulty` and `gues
 ![create_character()](/docs/create_character.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+- **Name :** `start_game()`
+- **Parameters :** None
+- **Goal :** Function runs in loops (4 loops for full game). Thsi function calls the `word_guess` with parameters increasing every loop to make the game harder each loop. After each game, this function determies if user can go to next stage or should the game ends in case of user didn't guess the word correctly.
+- **Function :** Function iterates through list `levels`. This list has currently 4 positions. Based on the next number in the `levels` list, parameters for `word_guess` function are determined. After each call for `word_guess` function, this function goes through if/else statement `game_winner` = True or False, `end_of_game` function is called then.
+- **Flow Chart :** *Appendix 23*
+
+*Appendix 23 - start_game()*
+
+![start_game()](/docs/start_game.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
