@@ -86,6 +86,8 @@
 
 ![display_text()](/docs/display_text.png)
 
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
 - **Name :** `clear_screen()`
 - **Parameters :** None
 - **Goal :** Function is designed to clear the terminal screen before next text is displayed. This scrren was made for compatibility between Windows and Unix systems, instead of changing multiple lines of code if enviroment is changed, the code needs to be only changed iside of this function.
@@ -95,5 +97,17 @@
 *Appendix 10 - clear_screen()*
 
 ![clear_screen()](/docs/clear_screen.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+- **Name :** `update_highscore()`
+- **Parameters :** None
+- **Goal :** Function is designed to update high score sheet in connected Google sheet.
+- **Function :** Function reads current time and saves it, based on that function then claculates play time (Play Time = Finish Time - Start Time). Function then connects to Google sheet and appends row with player's name and play time in seconds.
+- **Flow Chart :** *Appendix 10*
+
+*Appendix 11 - update_highscore()*
+
+![clear_screen()](/docs/update_highscores.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
