@@ -20,6 +20,8 @@
 - [4. Functions](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#4-functions)
 - [5. Overall logical flow](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#5-overall-logical-flow)
 - [6. Imports](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#6-imports)
+  - 6.1 modules
+  - 6.2. requiremtns 
 
 ---
 ---
@@ -254,6 +256,8 @@ After they are all reset, function recalculates variables `difficulty` and `gues
 
 # **6. Imports**
 
+## **6.1. Modules**
+
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
 To ensure functionality of this program, variable modules had to be imported.
@@ -328,4 +332,15 @@ To ensure functionality of this program, variable modules had to be imported.
 
 ---
 
-## requirements.txt
+## **6.2. requirements.txt**
+
+In order for the program to work in Heroku terminal, file `requirements.txt` needs to be created with all third party imported modules. This is done with command `pip freeze > requirements. txt`. This command ensures that up-to-date `requirements.txt` *(appendix 25)* file is generated.
+
+*Appendix 25 - requirements.txt*
+
+![requirements.txt](/docs/requirements.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+---
+---
