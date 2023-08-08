@@ -155,3 +155,15 @@
 ![display_highscores()](/docs/display_highscores.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+- **Name :** `end_of_game()`
+- **Parameters :** None
+- **Goal :** Function is designed to display winning/loosing meessage and call `update_highscore()` if user wins.
+- **Function :** Function contains if/else statement determining if variable `game_winner` is True. If `game_winner` is True, highscores are update and congratulations message is displayed. If `game_winner` is False, then only loosing message is displayed.
+- **Flow Chart :** *Appendix 17*
+
+*Appendix 17 - end_of_game()*
+
+![end_of_game()](/docs/end_of_game.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)

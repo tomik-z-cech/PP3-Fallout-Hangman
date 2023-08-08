@@ -410,6 +410,7 @@ def end_of_game():
     # Message to display if player looses.
     elif game_winner is False:
         display_text(5, 1)
+    return
 
 
 def wait_until_keypressed():
