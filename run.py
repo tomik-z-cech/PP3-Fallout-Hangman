@@ -131,7 +131,7 @@ def word_guess(difficulty, guesses):
         perk_charisma_used = 0
     # Open Google worksheet.
     words_sheet = SHEET.worksheet("words")
-    # Generate random number 1-50 and import a word based on
+    # Generate random number 1-max_word_number and import a word based on
     # difficulty = length of word and generated number.
     random_number = random_word_number()
     word_to_guess = words_sheet.cell(random_number, difficulty).value

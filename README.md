@@ -179,3 +179,18 @@
 ![random_word_number()](/docs/random.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+- **Name :** `word_guess(difficulty, guesses)`
+- **Parameters :** `difficulty` = length of guessed word, `guesses` = the amount of guesses per word
+- **Goal :** Function prepares a hidden word and user needs to guess all the letters correctly or guess the whole word.
+- **Function :** This function resets all the necessary variables first.`message_color = 3`, `message = ''`, `word_guessed_correctly = False`, `letters_guessed = []`.
+After they are all reset, function recalculates variables `difficulty` and `guesses` based on perks lucks or inteligence were used, also if perk charisma was used, variable `perk_charisma_used` is set to 1.Function random_word_number is called and number returned. Function then opens Google worksheet ('words') and based on `difficulty` and returned random number targets a specific cell with a word in it. Then this function runs in cycle until either the word is guessed correctly or user runs out of guesses. All letters of hidden word are initially replaced with `'-'`, unless perk cahrisma was used, then one letter is left unhidden. User is prompted to guess a letter or type whe whole word. Depends on the letter being in hidden word or not, the next cycle is determined wirh message and all displayed information. 
+- **Flow Chart :** *Appendix 19*
+
+*Appendix 19 - word_guess(difficulty, guesses)*
+
+![word_guess(difficulty, guesses)](/docs/word_guess.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
