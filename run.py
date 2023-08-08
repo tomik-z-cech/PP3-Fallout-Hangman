@@ -66,7 +66,7 @@ def display_text(row, column, delay=0.012):
     """
     Function displays large portions of text from connected google
     sheet with typewriter effect.
-    Function takes number of line as parameter.
+    Function takes number of line and column as parameter.
     """
     # Clear screen
     clear_screen()

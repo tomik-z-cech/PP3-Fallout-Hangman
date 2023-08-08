@@ -76,4 +76,14 @@
 
 # **4. Functions**
 
-## **4.1**
+**Name :** `display_text(row, column, delay=0.012)`
+**Parameters :** `row` `column`
+**Goal :** Function is designed to display large amount of text with a type-writer effect.
+**Function :** Function calls `clear_screen()` first and then connects to Google sheet and targets cell stated as parameters. Function reads this cell and replaces string `PLAYER` with variable `player_name` and string `BREAK` with `\n` to wrap lines in Heroku terminal in suitable positions.
+**Flow Chart :** *Appendix 9*
+
+*Appendix 9 - display_text()*
+
+![display_text()](/docs/display_text.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
