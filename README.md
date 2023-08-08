@@ -131,3 +131,15 @@
 ![update_history()](/docs/update_history.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+- **Name :** `wait_until_keypressed()`
+- **Parameters :** None
+- **Goal :** Function is designed to make a pause in program run and wait until user presses any key.
+- **Function :** Function reads character pressed into variable `pause_var`. This variable is then "displayed" in black color so it is not visible in black backgrounded terminal. Priniting the variable `pause_var` is not neccessary, but it does avoid error message in code.
+- **Flow Chart :** *Appendix 15*
+
+*Appendix 15 - wait_until_keypressed()*
+
+![wait_until_keypressed()](/docs/wait.png)
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
