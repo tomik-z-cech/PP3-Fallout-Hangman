@@ -18,6 +18,7 @@
 - [3. Description of functionality and rules](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#3-description-of-functionality)
 - [4. Functions](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#4-functions)
 - [5. Overall logical flow](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#5-overall-logical-flow)
+- [6. Imports](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#6-imports)
 
 ---
 
@@ -243,5 +244,24 @@ After they are all reset, function recalculates variables `difficulty` and `gues
 ![Overall Flowchart](/docs/overall.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+---
+
+# **6. Imports**
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+To ensure functionality of this program, variable modules had to be imported.
+
+- **Name of module:** `readchar`
+- **Function :** This module reads one character as user input, returning it as string with lenght 1. Waits until character is available.
+- **Version used :** 4.0.5
+- **Link to documentation:** [Readchar](https://pypi.org/project/readchar/)
+
+
+- **Name of module:** `colorama`
+- **Function :** The Python colorama module is a cross-platform library that simplifies the process of adding color to terminal text. It provides a simple and convenient way to add ANSI escape codes to text, making it possible to color text output on Windows as well as other platforms.
+- **Version used :** 0.4.6
+- **Link to documentation:** [Colorama](https://pypi.org/project/colorama/)
 
 ---
