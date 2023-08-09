@@ -361,7 +361,19 @@ This project uses Google sheets.
 - Database of High Scores - sheet `(highscores)`
 - Record of history of accesses - sheet `(history)`
 
+It is necessary to implement the following code to access the file with given credentials *(appnedix 26)*.
 
+[Google sheet credentials documentation](https://cloud.google.com/docs/authentication/provide-credentials-adc)
+
+*Appendix 26 - Google sheets credentials*
+
+![Google sheets credentials](/docs/credentials.png)
+
+Also, very importandly, the same credentials need to be passed onto Heroku apllication *(appendix 27)*, including the `PORT = 8000` as config vars.
+
+*Appendix 27 - Heroku settings*
+
+![Heroku settings](/docs/heroku_settings.png)
 
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
