@@ -521,5 +521,12 @@ There are no know unfixed bugs as of 9.8.2023.
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
+- **Code Institute** - for all fun I had with this project [Code Institute](https://codeinstitute.net/ie/)
+- **W3Schools** - useful information and cheat sheets [W3Schools](https://www.w3schools.com/)
+- **EZGif** - render GIF from video files [EZGif](https://ezgif.com/)
+- **Daisy McGirr** - excellent mentoring [Daisy McGirr](https://www.linkedin.com/in/daisy-mcgirr/)
+- **Alan Bushell** - excellent class cohort [Alan Bushell](https://www.linkedin.com/in/bushell23/)
+- **My lovely wife Aneta and kids Izabela, Tobias and Jan** - great patience and mental support
+
 ---
 ---
