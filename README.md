@@ -505,6 +505,13 @@ There are no know unfixed bugs as of 9.8.2023.
 
 # **10. Technologies**
 
+- **Python** - coding language [Python](https://docs.python.org/3/)
+- **Google Cloud** - Cloud for developers inlcuding Google drive [Google cloud](https://cloud.google.com/gcp?utm_source=google&utm_medium=cpc&utm_campaign=emea-ie-all-en-bkws-all-all-trial-e-gcp-1011340&utm_content=text-ad-none-any-DEV_c-CRE_501744307425-ADGP_Hybrid+%7C+BKWS+-+EXA+%7C+Txt+~+GCP+~+General%23v1-KWID_43700061563014858-aud-1649240964235:kwd-6458750523-userloc_20486&utm_term=KW_google+cloud-NET_g-PLAC_&&gad=1&gclid=CjwKCAjw8symBhAqEiwAaTA__BykLiQjLdeeHz8v0vwYLS56_z0Hk20gjUR-5wly13nS-wvlfrO31BoCeJgQAvD_BwE&gclsrc=aw.ds&hl=en)
+- **CodeAnywhere** - to write and save the code [CodeAnywhere](https://app.codeanywhere.com/)
+- **GitBash** - to make commitments of progress and push the results back to GitHub [git - scm](https://git-scm.com/downloads)
+- **ConText** - code off-line in "doodle-zone" mode [ConTEXT editor](https://www.contexteditor.org/)
+- **GitHub** - to record all commitments and deployment the live project [GitHub](https://github.com/)
+
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
 ---
