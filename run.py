@@ -368,7 +368,7 @@ def print_intro():
     wrong_choice = False
     while True:
         clear_screen()
-        print(LOGO)
+        print(Fore.YELLOW + LOGO + Style.RESET_ALL)
         # Print menu on screen.
         print(Fore.YELLOW + '┌──────────────────', end='')
         print('─────────────────────┐' + Style.RESET_ALL)
