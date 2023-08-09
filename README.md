@@ -30,9 +30,9 @@
     - [8.2. Validator testing](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
     - [8.2. Bugs](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
 - [9. Deployment](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#9-deployment)
-    - [9.1. Transfer of progress from IDE](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
-    - [9.2. Offline cloning](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
-    - [9.3. Heroku](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
+    - [9.1. Transfer of progress from IDE](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#91-transfer-of-progress-from-ide)
+    - [9.2. Offline cloning](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#92-offline-cloning)
+    - [9.3. Heroku](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#93-heroku)
 - [10. Technologies](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#10-technologies)
 - [11. Credits](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#11-credits)
 
@@ -484,7 +484,7 @@ There are no know unfixed bugs as of 9.8.2023.
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
-## **9.3. Heroku
+## **9.3. Heroku**
 
 - **Task :** Enable users to acces the program via Heroku terminal.
 - **Method :** 
