@@ -31,14 +31,6 @@ MAN_EMOJI = '\U0001F468\u200D\U0001F52C'
 WOMAN_EMOJI = '\U0001F469\u200D\U0001F52C'
 SKULL = '\u2620'
 LETTER = '\u2753'
-LOGO = """
- ________        __   __                   _      _____   
-|_   __  |      [  | [  |                 / |_   / ___ `. 
-  | |_ \_|,--.   | |  | |  .--.   __   _ `| |-' |_/___) | 
-  |  _|  `'_\ :  | |  | |/ .'`\ \[  | | | | |    .'____.' 
- _| |_   // | |, | |  | || \__. | | \_/ |,| |,  / /_____  
-|_____|  \'-;__/[___][___]'.__.'  '.__.'_/\__/  |_______|
-  """
 
 # Global variables
 player_name = ''
@@ -353,7 +345,6 @@ def print_intro():
     wrong_choice = False
     while True:
         clear_screen()
-        print(Fore.YELLOW + LOGO + Style.RESET_ALL)
         # Print menu on screen.
         print(Fore.YELLOW + '┌──────────────────', end='')
         print('─────────────────────┐' + Style.RESET_ALL)
