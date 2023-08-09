@@ -25,6 +25,8 @@
     - [6.2. requirements.txt](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#62-requirementstxt)
 - [7. Google sheet](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#7-google-sheet)
 - [8. Testing](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#8-testing)
+    - [8.1. Developer testing](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#81-developer-testing)
+    - [8.1. User testing](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
 - [9. Deployment](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#9-deployment)
 - [10. Technologies](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#10-technologies)
 - [11. Credits](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#11-credits)
@@ -408,6 +410,8 @@ Also, very importandly, the same credentials need to be passed onto Heroku aplli
 ![Guess Word Input test](/docs/guess_word_test.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+## **8.1. User testing**
 
 ---
 ---
