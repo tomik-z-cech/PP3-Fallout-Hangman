@@ -26,7 +26,7 @@
 - [7. Google sheet](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#7-google-sheet)
 - [8. Testing](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#8-testing)
     - [8.1. Developer testing](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#81-developer-testing)
-    - [8.1. User testing](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
+    - [8.2. User testing](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
 - [9. Deployment](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#9-deployment)
 - [10. Technologies](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#10-technologies)
 - [11. Credits](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#11-credits)
@@ -411,7 +411,18 @@ Also, very importandly, the same credentials need to be passed onto Heroku aplli
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
-## **8.1. User testing**
+## **8.2. User testing**
+
+
+|User|Nessa Bourke  |
+|--|--|
+| Feedback given | I really enjoyed using the program, instructions were clear and easy to follow and I especially loved the high score feature! It would be good to return to the main menu at any stage.|
+| Applied changes | Added "0" as an option to all inputs to return to main menu. Commit [91c8830](https://github.com/tomik-z-cech/PP3-Fallout-Hangman/commit/91c8830299d6047dcf648f16d00cd7ed7a77bb64)  |
+---
+|User|Julie Carroll  |
+|--|--|
+| Feedback given | All functionality is good, please do spelling check. |
+| Applied changes | Spelling check performed. Commit [fb2802d](https://github.com/tomik-z-cech/PP3-Fallout-Hangman/commit/fb2802df3ee5a27ce4358714909e4a4fbac1e8e8). |
 
 ---
 ---
