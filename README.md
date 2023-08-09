@@ -424,6 +424,18 @@ Also, very importandly, the same credentials need to be passed onto Heroku aplli
 | Feedback given | All functionality is good, please do spelling check. |
 | Applied changes | Spelling check performed. Commit [fb2802d](https://github.com/tomik-z-cech/PP3-Fallout-Hangman/commit/fb2802df3ee5a27ce4358714909e4a4fbac1e8e8). |
 
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+## **8.3. validator testing**
+
+### PEP8 validator
+- **Method :** Project (`run.py`) was tested by  [PEP8 validator](https://pep8ci.herokuapp.com/).
+- **Result :** No errors were found when tested (*appendix 32*).
+
+*Appendix 32 - PEP8 validator*
+
+![PEP8 validator](/docs/pep8.png)
+
 ---
 ---
 
