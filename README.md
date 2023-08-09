@@ -383,6 +383,30 @@ Also, very importandly, the same credentials need to be passed onto Heroku aplli
 
 # **8. Testing**
 
+## **8.1. Developer testing**
+
+**Steps :** 
+- Main Menu *(appendix 28)*
+- Name Input *(appendix 29)*
+- Perk Input *(appendix 30)*
+- Guess Word *(appendix 31)*
+
+*Appendix 28 - Main Menu test*
+
+![Main Menu test](/docs/main_menu_test.png)
+
+*Appendix 29 - Name Input test*
+
+![Name Input test](/docs/name_input_test.png)
+
+*Appendix 30 - Perk Input test*
+
+![Perk Input test](/docs/perk_test.png)
+
+*Appendix 31 - Guess Word test*
+
+![Guess Word Input test](/docs/guess_word_test.png)
+
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
 ---
