@@ -22,7 +22,11 @@
 - [6. Imports](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#6-imports)
     - [6.1. Modules](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#61-modules)
     - [6.2. requirements.txt](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#62-requirementstxt)
-- [7. Google sheet](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#6-google-sheet)
+- [7. Google sheet](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#7-google-sheet)
+- [8. Testing](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#8-testing)
+- [9. Deployment](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#9-deployment)
+- [10. Technologies](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#10-technologies)
+- [11. Credits](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#11-credits)
 
 ---
 ---
@@ -347,6 +351,27 @@ In order for the program to work in Heroku terminal, file `requirements.txt` nee
 ---
 
 # **7. Google sheet**
+
+---
+---
+
+# **8. Testing**
+
+---
+---
+
+# **9. Deployment**
+
+---
+---
+
+
+# **10. Technologies**
+
+---
+---
+
+# **11. Credits**
 
 ---
 ---
