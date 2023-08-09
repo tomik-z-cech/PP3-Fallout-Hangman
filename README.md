@@ -488,8 +488,14 @@ There are no know unfixed bugs as of 9.8.2023.
 
 - **Task :** Enable users to acces the program via Heroku terminal.
 - **Method :** 
-   - Once the Heroku account and URL is linked with GitHub repository, the live program does update automatically.  
+   - Once the Heroku account and URL is linked with GitHub repository, the live program does update automatically.
+   - Heroku has to have all vars set properly *(appendix 27)*
+   - Heroku has to have all relevant buildpacks enabled in correct order *(appendix 33)*   
 - **Finding :** Heroku termainl freezer after 1 minute inactivity.
+
+*Appendix 33 - Heroku buildpacks*
+
+![PEP8 validator](/docs/buildpacks.png)
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
