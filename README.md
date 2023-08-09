@@ -30,6 +30,9 @@
     - [8.2. Validator testing](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
     - [8.2. Bugs](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
 - [9. Deployment](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#9-deployment)
+    - [9.1. Transfer of progress from IDE](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
+    - [9.2. Offline cloning](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
+    - [9.3. Heroku](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#82-user-testing)
 - [10. Technologies](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#10-technologies)
 - [11. Credits](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#11-credits)
 
@@ -442,8 +445,14 @@ Also, very importandly, the same credentials need to be passed onto Heroku aplli
 
 ### Fixed bugs
 Throughout testing, various bugs were discovered, especially with 79 characters long line. They were all fixed, committed and documented via GitHub.
- - Error displayed when currently played background music needed to be stopped, but the user didn't turn music on.
- - **Fix :** isMusicOn variable and if statement created. `if (isMusicOn == true){currentlyPlaying.pause();}` 
+ - Bug with inability to return to main menu from the game.
+ - **Fix :** Add if/else statement to all user input. If `input = "0"` run function `print_intro`.
+ - Error with line length of more than 79 characters.
+ - **Fix :** Wrap lines using `end=''` code. 
+ - In higher levels, the amount of guesses exceeded amount of letters in alphabet.
+ - **Fix :** Introduce `round_result = word_guess(level + 3, (level * 2) + 10)` multiplication of 2 instead of 3.
+ - When user plays game multiple times, perks are adding and user can avail of multiple perks.
+ - **Fix :** Introduce `reset of all perk variables` in `main()` function.  
 
 ### Unfixed bugs
 There are no know unfixed bugs as of 9.8.2023.
@@ -452,6 +461,35 @@ There are no know unfixed bugs as of 9.8.2023.
 ---
 
 # **9. Deployment**
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+## **9.1. Transfer of progress from IDE**
+
+- **Task :** To ensure regular commitments are done to avoid any data/progress loss.
+- **Method :** 
+   - commands `git add [filename]` was used to add specific file to staging area, alternatively command `git add .` was used to add all changed files to staging area
+   - command `git commit -m "[commit description]"` was used to add commitments into queue
+   - command `git push` was used to push all commitments to remote repository on GitHub
+- **Finding :** CodeAnywhere IDE only holds up to 3 commitments in queue, regular `git push` needed to be used.
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+## **9.2. Offline cloning**
+
+- **Task :** To use repository on local machine.
+- **Method :** 
+   - Navigate to GitHub and follow `Code -> HTTPS -> Copy button` . After those steps open your local coding environment and type `git clone [copied link]` .  
+- **Finding :** Git Windows application needs to be installed.
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
+
+## **9.3. Heroku
+
+- **Task :** Enable users to acces the program via Heroku terminal.
+- **Method :** 
+   - Once the Heroku account and URL is linked with GitHub repository, the live program does update automatically.  
+- **Finding :** Heroku termainl freezer after 1 minute inactivity.
 
 [Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
