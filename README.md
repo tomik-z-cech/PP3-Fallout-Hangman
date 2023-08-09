@@ -2,7 +2,7 @@
 ---
 # **1. Key project information**
 
-- **Description :** This Portfolio Project 3, PYTHON program called **Fallout Mini - Hangman** is an online game (hangman quiz) that allows the user to test their vocabulary, progress through a story line that is based on Fallout 2 RPG game and make an entry to leder board.
+- **Description :** This Portfolio Project 3, PYTHON program called **Fallout Mini - Hangman** is an online game (hangman quiz) that allows the user to test their vocabulary, progress through a story line that is based on Fallout 2 RPG game and make an entry to leader board.
 - **Key project goal :** To entertain users of this program and test their vocabulary knowledge attempting the **Fallout Mini - Hangman** game.
 - **Audience :** There's no age or any other limit to audience of this application. Target audience are any users searching for simple vocabulary games.
 
@@ -41,7 +41,7 @@
 
 # **3. Description of functionality**
 
-- After starting the program, user is prompted with `Main menu` with 3 options (Start the game, Highscores, Exit) *(appendix 1)*.
+- After starting the program, user is prompted with `Main menu` with 3 options (Start the game, High Scores, Exit) *(appendix 1)*.
 - If users selects "S" - Start Game, user is prompted with input of their name *(appendix 2)*.
 - In next step, user is prompted with perk selection *(appendix 3)*:
   - **Intelligent** - shortens the hidden word by 1 letter
@@ -114,7 +114,7 @@
 
 - **Name :** `clear_screen()`
 - **Parameters :** None
-- **Goal :** Function is designed to clear the terminal screen before next text is displayed. This scrren was made for compatibility between Windows and Unix systems, instead of changing multiple lines of code if enviroment is changed, the code needs to be only changed iside of this function.
+- **Goal :** Function is designed to clear the terminal screen before next text is displayed. This scrren was made for compatibility between Windows and Unix systems, instead of changing multiple lines of code if enviroment is changed, the code needs to be only changed inside of this function.
 - **Function :** Function only performs one line of code.
 - **Flow Chart :** *Appendix 11*
 
@@ -159,7 +159,7 @@
 - **Name :** `wait_until_keypressed()`
 - **Parameters :** None
 - **Goal :** Function is designed to make a pause in program run and wait until user presses any key.
-- **Function :** Function reads character pressed into variable `pause_var`. This variable is then "displayed" in black color so it is not visible in black backgrounded terminal. Priniting the variable `pause_var` is not neccessary, but it does avoid error message in code.
+- **Function :** Function reads character pressed into variable `pause_var`. This variable is then "displayed" in black color so it is not visible in terminal with balck backdround. Priniting the variable `pause_var` is not neccessary, but it does avoid error message in code.
 - **Flow Chart :** *Appendix 16*
 
 *Appendix 16 - wait_until_keypressed()*
@@ -182,8 +182,8 @@
 
 - **Name :** `end_of_game()`
 - **Parameters :** None
-- **Goal :** Function is designed to display winning/loosing meessage and call `update_highscore()` if user wins.
-- **Function :** Function contains if/else statement determining if variable `game_winner` is True. If `game_winner` is True, highscores are update and congratulations message is displayed. If `game_winner` is False, then only loosing message is displayed.
+- **Goal :** Function is designed to display winning/loosing message and call `update_highscore()` if user wins.
+- **Function :** Function contains if/else statement determining if variable `game_winner` is True. If `game_winner` is True, high scores are update and congratulations message is displayed. If `game_winner` is False, then only loosing message is displayed.
 - **Flow Chart :** *Appendix 18*
 
 *Appendix 18 - end_of_game()*
@@ -195,7 +195,7 @@
 - **Name :** `random_word_number()`
 - **Parameters :** None
 - **Goal :** Function is designed to randomly generate number between 1 and variable `max_word_number`.
-- **Function :** Function runs in loop. Each cycle function geneartes number between 1 and value of variable `max_word_number`. This variable is currently set to 50 as the database of words contain 50 entries for each word length. Variable `max_word_number` needs to be adjusted if the database of words is made broader. This function also contains if/else statement to ensure the randomly generated number was not generated already. The cycle is exited only if newly genearted number isn't inluded in `numbers_picked` list.
+- **Function :** Function runs in loop. Each cycle function generates number between 1 and value of variable `max_word_number`. This variable is currently set to 50 as the database of words contains 50 entries for each word length. Variable `max_word_number` needs to be adjusted if the database of words is made broader. This function also contains if/else statement to ensure the randomly generated number was not generated already. The cycle is exited only if newly generated number isn't included in `numbers_picked` list.
 - **Flow Chart :** *Appendix 19*
 
 *Appendix 19 - random_word_number()*
@@ -208,7 +208,7 @@
 - **Parameters :** `difficulty` = length of guessed word, `guesses` = the amount of guesses per word
 - **Goal :** Function prepares a hidden word and user needs to guess all the letters correctly or guess the whole word.
 - **Function :** This function resets all the necessary variables first.`message_color = 3`, `message = ''`, `word_guessed_correctly = False`, `letters_guessed = []`.
-After they are all reset, function recalculates variables `difficulty` and `guesses` based on perks lucks or inteligence were used, also if perk charisma was used, variable `perk_charisma_used` is set to 1.Function random_word_number is called and number returned. Function then opens Google worksheet ('words') and based on `difficulty` and returned random number targets a specific cell with a word in it. Then this function runs in cycle until either the word is guessed correctly or user runs out of guesses. All letters of hidden word are initially replaced with `'-'`, unless perk cahrisma was used, then one letter is left unhidden. User is prompted to guess a letter or type whe whole word. Depends on the letter being in hidden word or not, the next cycle is determined wirh message and all displayed information. 
+After they are all reset, function recalculates variables `difficulty` and `guesses` based on perks lucks or intelligence were used, also if perk charisma was used, variable `perk_charisma_used` is set to 1. Function random_word_number is called and number returned. Function then opens Google worksheet ('words') and based on `difficulty` and returned random number targets a specific cell with a word in it. Then this function runs in cycle until either the word is guessed correctly or user runs out of guesses. All letters of hidden word are initially replaced with `'-'`, unless perk charisma was used, then one letter is left unhidden. User is prompted to guess a letter or type the whole word. Depends on the letter being in hidden word or not, the next cycle is determined with message and all displayed information. 
 - **Flow Chart :** *Appendix 20*
 
 *Appendix 20 - word_guess(difficulty, guesses)*
@@ -243,7 +243,7 @@ After they are all reset, function recalculates variables `difficulty` and `gues
 
 - **Name :** `start_game()`
 - **Parameters :** None
-- **Goal :** Function runs in loops (4 loops for full game). Thsi function calls the `word_guess` with parameters increasing every loop to make the game harder each loop. After each game, this function determies if user can go to next stage or should the game ends in case of user didn't guess the word correctly.
+- **Goal :** Function runs in loops (4 loops for full game). This function calls the `word_guess` with parameters increasing every loop to make the game harder each loop. After each game, this function determines if user can go to next stage or should the game ends in case of user didn't guess the word correctly.
 - **Function :** Function iterates through list `levels`. This list has currently 4 positions. Based on the next number in the `levels` list, parameters for `word_guess` function are determined. After each call for `word_guess` function, this function goes through if/else statement `game_winner` = True or False, `end_of_game` function is called then.
 - **Flow Chart :** *Appendix 23*
 
@@ -276,7 +276,7 @@ After they are all reset, function recalculates variables `difficulty` and `gues
 To ensure functionality of this program, variable modules had to be imported.
 
 - **Name of module:** `readchar`
-- **Function :** This module reads one character as user input, returning it as string with lenght 1. Waits until character is available.
+- **Function :** This module reads one character as user input, returning it as string with length 1. Waits until character is available.
 - **Version used :** 4.0.5
 - **Link to documentation:** [readchar](https://pypi.org/project/readchar/)
 
@@ -363,12 +363,12 @@ In order for the program to work in Heroku terminal, file `requirements.txt` nee
 This project uses Google sheets.
 
 **Reasons :** 
-- Save large protions of text - sheet `(text)`
+- Save large amounts of text - sheet `(text)`
 - Database of hidden words - sheet `(words)`
 - Database of High Scores - sheet `(highscores)`
 - Record of history of accesses - sheet `(history)`
 
-It is necessary to implement the following code to access the file with given credentials *(appnedix 26)*.
+It is necessary to implement the following code to access the file with given credentials *(appenedix 26)*.
 
 [Google sheet credentials documentation](https://cloud.google.com/docs/authentication/provide-credentials-adc)
 
@@ -376,7 +376,7 @@ It is necessary to implement the following code to access the file with given cr
 
 ![Google sheets credentials](/docs/credentials.png)
 
-Also, very importandly, the same credentials need to be passed onto Heroku apllication *(appendix 27)*, including the `PORT = 8000` as config vars.
+Also, very importantly, the same credentials need to be passed onto Heroku aplication *(appendix 27)*, including the `PORT = 8000` as config vars.
 
 *Appendix 27 - Heroku settings*
 
@@ -486,12 +486,12 @@ There are no know unfixed bugs as of 9.8.2023.
 
 ## **9.3. Heroku**
 
-- **Task :** Enable users to acces the program via Heroku terminal.
+- **Task :** Enable users to access the program via Heroku terminal.
 - **Method :** 
    - Once the Heroku account and URL is linked with GitHub repository, the live program does update automatically.
    - Heroku has to have all vars set properly *(appendix 27)*
    - Heroku has to have all relevant buildpacks enabled in correct order *(appendix 33)*   
-- **Finding :** Heroku termainl freezer after 1 minute inactivity.
+- **Finding :** Heroku terminal freezes after 1 minute inactivity.
 
 *Appendix 33 - Heroku buildpacks*
 
@@ -506,7 +506,7 @@ There are no know unfixed bugs as of 9.8.2023.
 # **10. Technologies**
 
 - **Python** - coding language [Python](https://docs.python.org/3/)
-- **Google Cloud** - Cloud for developers inlcuding Google drive [Google cloud](https://cloud.google.com/gcp?utm_source=google&utm_medium=cpc&utm_campaign=emea-ie-all-en-bkws-all-all-trial-e-gcp-1011340&utm_content=text-ad-none-any-DEV_c-CRE_501744307425-ADGP_Hybrid+%7C+BKWS+-+EXA+%7C+Txt+~+GCP+~+General%23v1-KWID_43700061563014858-aud-1649240964235:kwd-6458750523-userloc_20486&utm_term=KW_google+cloud-NET_g-PLAC_&&gad=1&gclid=CjwKCAjw8symBhAqEiwAaTA__BykLiQjLdeeHz8v0vwYLS56_z0Hk20gjUR-5wly13nS-wvlfrO31BoCeJgQAvD_BwE&gclsrc=aw.ds&hl=en)
+- **Google Cloud** - Cloud for developers including Google drive [Google cloud](https://cloud.google.com/gcp?utm_source=google&utm_medium=cpc&utm_campaign=emea-ie-all-en-bkws-all-all-trial-e-gcp-1011340&utm_content=text-ad-none-any-DEV_c-CRE_501744307425-ADGP_Hybrid+%7C+BKWS+-+EXA+%7C+Txt+~+GCP+~+General%23v1-KWID_43700061563014858-aud-1649240964235:kwd-6458750523-userloc_20486&utm_term=KW_google+cloud-NET_g-PLAC_&&gad=1&gclid=CjwKCAjw8symBhAqEiwAaTA__BykLiQjLdeeHz8v0vwYLS56_z0Hk20gjUR-5wly13nS-wvlfrO31BoCeJgQAvD_BwE&gclsrc=aw.ds&hl=en)
 - **CodeAnywhere** - to write and save the code [CodeAnywhere](https://app.codeanywhere.com/)
 - **GitBash** - to make commitments of progress and push the results back to GitHub [git - scm](https://git-scm.com/downloads)
 - **ConText** - code off-line in "doodle-zone" mode [ConTEXT editor](https://www.contexteditor.org/)
@@ -519,14 +519,14 @@ There are no know unfixed bugs as of 9.8.2023.
 
 # **11. Credits**
 
-[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
-
 - **Code Institute** - for all fun I had with this project [Code Institute](https://codeinstitute.net/ie/)
 - **W3Schools** - useful information and cheat sheets [W3Schools](https://www.w3schools.com/)
 - **EZGif** - render GIF from video files [EZGif](https://ezgif.com/)
 - **Daisy McGirr** - excellent mentoring [Daisy McGirr](https://www.linkedin.com/in/daisy-mcgirr/)
 - **Alan Bushell** - excellent class cohort [Alan Bushell](https://www.linkedin.com/in/bushell23/)
-- **My lovely wife Aneta and kids Izabela, Tobias and Jan** - great patience and mental support
+- **My lovely wife Aneta and kids Jan, Izabela and Tobias** - great patience and mental support
+
+[Back to Table of content](https://github.com/tomik-z-cech/PP3-Fallout-Hangman#2-table-of-content)
 
 ---
 ---
